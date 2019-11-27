@@ -1,14 +1,14 @@
 package models;
 
-import Interfaces.InterfacePassagem;
+import interfaces.InterfacePassagem;
 
-public class Passagem implements InterfacePassagem{
-    private Aeroporto aeroportoPartida;
-    private Aeroporto aeroportoChegada;
+public class ModelPassagem implements InterfacePassagem{
+    private ModelAeroporto aeroportoPartida;
+    private ModelAeroporto aeroportoChegada;
     private int numeroDaPoltrona;
     private float valor;
     
-	public Passagem(Aeroporto aeroportoPartida, Aeroporto aeroportoChegada, int numeroDaPoltrona, float valor) {
+	public ModelPassagem(ModelAeroporto aeroportoPartida, ModelAeroporto aeroportoChegada, int numeroDaPoltrona, float valor) {
 		this.setAeroportoChegada(aeroportoChegada);
 		this.setAeroportoPartida(aeroportoPartida);
 		this.setNumeroDaPoltrona(numeroDaPoltrona);
@@ -31,19 +31,19 @@ public class Passagem implements InterfacePassagem{
 		this.numeroDaPoltrona = numeroDaPoltrona;
 	}
 	
-	public Aeroporto getAeroportoPartida() {
+	public ModelAeroporto getAeroportoPartida() {
 		return aeroportoPartida;
 	}
 	
-	public void setAeroportoPartida(Aeroporto aeroportoPartida) {
+	public void setAeroportoPartida(ModelAeroporto aeroportoPartida) {
 		this.aeroportoPartida = aeroportoPartida;
 	}
 	
-	public Aeroporto getAeroportoChegada() {
+	public ModelAeroporto getAeroportoChegada() {
 		return aeroportoChegada;
 	}
 	
-	public void setAeroportoChegada(Aeroporto aeroportoChegada) {
+	public void setAeroportoChegada(ModelAeroporto aeroportoChegada) {
 		this.aeroportoChegada = aeroportoChegada;
 	}
     

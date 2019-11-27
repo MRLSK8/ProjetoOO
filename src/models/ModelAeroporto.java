@@ -1,14 +1,14 @@
 package models;
 
-import Interfaces.InterfaceAeroporto;
+import interfaces.InterfaceAeroporto;
 
-public class Aeroporto implements InterfaceAeroporto{
+public class ModelAeroporto implements InterfaceAeroporto{
 	private String codigoAeroporto;
 	private String nomeAeroporto;
     private String cidade;
     private String estado;
     
-	public Aeroporto(String codigoAeroporto, String cidade, String estado, String nomeAeroporto) {
+	public ModelAeroporto(String codigoAeroporto, String cidade, String estado, String nomeAeroporto) {
 		this.setCidade(cidade);
 		this.setCodigo_aeroporto(nomeAeroporto);
 		this.setEstado(estado);

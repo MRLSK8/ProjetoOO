@@ -1,11 +1,11 @@
 package models;
 
-import Interfaces.InterfaceVendedor;
+import interfaces.InterfaceVendedor;
 
-public class Vendedor extends Pessoa implements InterfaceVendedor{
+public class ModelVendedor extends ModelPessoa implements InterfaceVendedor{
 	private int NumeroCracha;
 	
-	public Vendedor(String CPF,String Nome, String DataNascimento, String Telefone, int NumeroCracha) {
+	public ModelVendedor(String CPF,String Nome, String DataNascimento, String Telefone, int NumeroCracha) {
 		super(CPF, Nome, DataNascimento, Telefone);
 		this.setNumeroCracha(NumeroCracha);
 	}

@@ -1,11 +1,11 @@
 package models;
 
-import Interfaces.InterfaceContratante;
+import interfaces.InterfaceContratante;
 
-public class Contratante extends Pessoa implements InterfaceContratante{
+public class ModelContratante extends ModelPessoa implements InterfaceContratante{
 	private int idContratante;
 		
-    public Contratante(String CPF, String Nome, String DataNascimento, String Telefone, int idContratante) {
+    public ModelContratante(String CPF, String Nome, String DataNascimento, String Telefone, int idContratante) {
         super(CPF, Nome, DataNascimento, Telefone);
         this.setIdContratante(idContratante);
     }

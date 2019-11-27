@@ -1,14 +1,14 @@
 package models;
 
-import Interfaces.InterfacePessoa;
+import interfaces.InterfacePessoa;
 
-public abstract class Pessoa implements InterfacePessoa{
+public abstract class ModelPessoa implements InterfacePessoa{
 	private String CPF;
     private String Nome;
     private String DataNascimento;
     private String Telefone;
       
-    public Pessoa(String CPF,String Nome, String DataNascimento, String Telefone){
+    public ModelPessoa(String CPF,String Nome, String DataNascimento, String Telefone){
         this.setCPF(CPF);
         this.setDataNascimento(DataNascimento);
         this.setNome(Nome);

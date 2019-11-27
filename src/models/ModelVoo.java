@@ -1,33 +1,33 @@
 package models;
 
-import Interfaces.InterfaceVoo;
+import interfaces.InterfaceVoo;
 
-public class Voo implements InterfaceVoo{
-	private Aeroporto aeroportoPartida;
-    private Aeroporto aeroportoChegada;
+public class ModelVoo implements InterfaceVoo{
+	private ModelAeroporto aeroportoPartida;
+    private ModelAeroporto aeroportoChegada;
     private String dataDoVoo;
     private String horaDoVoo;
     
-	public Voo(Aeroporto aeroportoPartida, Aeroporto aeroportoChegada, String dataDoVoo, String horaDoVoo) {
+	public ModelVoo(ModelAeroporto aeroportoPartida, ModelAeroporto aeroportoChegada, String dataDoVoo, String horaDoVoo) {
 		this.setAeroportoChegada(aeroportoChegada);
 		this.setAeroportoPartida(aeroportoPartida);
 		this.setDataDoVoo(dataDoVoo);
 		this.setHoraDoVoo(horaDoVoo);
 	}
 
-	public Aeroporto getAeroportoPartida() {
+	public ModelAeroporto getAeroportoPartida() {
 		return aeroportoPartida;
 	}
 	
-	public void setAeroportoPartida(Aeroporto aeroportoPartida) {
+	public void setAeroportoPartida(ModelAeroporto aeroportoPartida) {
 		this.aeroportoPartida = aeroportoPartida;
 	}
 	
-	public Aeroporto getAeroportoChegada() {
+	public ModelAeroporto getAeroportoChegada() {
 		return aeroportoChegada;
 	}
 	
-	public void setAeroportoChegada(Aeroporto aeroportoChegada) {
+	public void setAeroportoChegada(ModelAeroporto aeroportoChegada) {
 		this.aeroportoChegada = aeroportoChegada;
 	}
 	

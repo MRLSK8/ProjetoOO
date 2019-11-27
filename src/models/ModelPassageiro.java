@@ -1,11 +1,11 @@
 package models;
 
-import Interfaces.InterfacePassageiro;
+import interfaces.InterfacePassageiro;
 
-public class Passageiro extends Pessoa implements InterfacePassageiro{
+public class ModelPassageiro extends ModelPessoa implements InterfacePassageiro{
 	private int Passaporte;
 	     
-    public Passageiro(String CPF, String Nome, String DataNascimento, String Telefone, int Passaporte) {
+    public ModelPassageiro(String CPF, String Nome, String DataNascimento, String Telefone, int Passaporte) {
         super(CPF, Nome, DataNascimento, Telefone);
         this.setPassaporte(Passaporte);
     }
