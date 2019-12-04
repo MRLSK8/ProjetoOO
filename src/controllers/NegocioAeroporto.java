@@ -10,19 +10,35 @@ public class NegocioAeroporto {
 		this.aeroportos = aeroportos;
 	}
 	
-	public String inserirAerorporto(ModelAeroporto aeroporto) {
-		return aeroportos.inserir(aeroporto);
+	public void inserirAerorporto(ModelAeroporto aeroporto) throws Exception {
+		try{
+			aeroportos.inserir(aeroporto);
+		}catch(Exception e) {
+			throw new Exception();
+		}
 	}
 	
-	public String deletarAerorporto(String nomeAeroporto) {
-		return aeroportos.excluir(nomeAeroporto);
+	public void deletarAerorporto(String nomeAeroporto) throws Exception{
+		try {
+			aeroportos.excluir(nomeAeroporto);
+		}catch(Exception e) {
+			throw new Exception();
+		}
 	}
 	
-	public String atualizarAerorporto(String nomeAeroporto, String novoNome) {
-		return aeroportos.atualizar(nomeAeroporto, novoNome);
+	public void atualizarAerorporto(String nomeAeroporto, String novoNome) throws Exception{
+		try{
+			aeroportos.atualizar(nomeAeroporto, novoNome);
+		}catch(Exception e) {
+			throw new Exception();
+		}
 	}
 	
-	public ModelAeroporto buscarAerorporto(String nomeAeroporto) {
-		return aeroportos.procurar(nomeAeroporto);
+	public ModelAeroporto buscarAerorporto(String nomeAeroporto) throws Exception{
+		try{
+			return aeroportos.procurar(nomeAeroporto);
+		}catch(Exception e) {
+			throw new Exception();
+		}
 	}
 }

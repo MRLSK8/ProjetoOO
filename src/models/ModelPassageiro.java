@@ -7,6 +7,10 @@ public class ModelPassageiro extends ModelPessoa{
         super(CPF, Nome, DataNascimento, Telefone);
         this.setPassaporte(Passaporte);
     }
+    
+    public ModelPassageiro(String nome) {
+    	this.setNome(nome);
+    }
 
 	public int getPassaporte() {
 		return Passaporte;

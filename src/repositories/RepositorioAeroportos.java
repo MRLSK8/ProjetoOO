@@ -7,27 +7,21 @@ import models.ModelAeroporto;
 public class RepositorioAeroportos implements InterfaceRepositorioAeroportos{
 	ArrayList<ModelAeroporto> Aeroportos = new ArrayList<ModelAeroporto>();
 	
-	
-	public String inserir(ModelAeroporto aeroporto) {
+	public void inserir(ModelAeroporto aeroporto) throws Exception{
 		this.Aeroportos.add(aeroporto);
-		
-		return "Inserido com sucesso";
 	}
 	
-	
-	public String excluir(String nomeAeroporto) {
+	public void excluir(String nomeAeroporto) throws Exception{
 		ModelAeroporto aeroportoAuxiliar = procurar(nomeAeroporto);
 		
 		if(aeroportoAuxiliar != null) {
 			this.Aeroportos.remove(aeroportoAuxiliar);
-			return "Deletado com sucesso";
 		}else {
-			return "Errro ao deletar aeroporto";
+			throw new Exception();
 		}		
 	}
 	
-	
-	public String atualizar(String nomeAeroporto, String novoNome) {
+	public void atualizar(String nomeAeroporto, String novoNome) throws Exception{
 		int index = 0;
 		
 		ModelAeroporto aeroportoAuxiliar = procurar(nomeAeroporto);
@@ -37,21 +31,18 @@ public class RepositorioAeroportos implements InterfaceRepositorioAeroportos{
 		    
 			index = Aeroportos.indexOf(aeroportoAuxiliar);
 			Aeroportos.add(index, aeroportoAuxiliar);
-			
-			return "Atualizado com sucesso";
 		}else {
-			return "Erro ao atualizar";
+			throw new Exception();
 		}
 		
 	}
 
-
-	public ModelAeroporto procurar(String nomeAeroporto) {
+	public ModelAeroporto procurar(String nomeAeroporto) throws Exception{
 		ModelAeroporto aeroportoAuxiliar = new ModelAeroporto(nomeAeroporto);
 		int index = Aeroportos.indexOf(aeroportoAuxiliar);
 		
 		if(index == -1) {
-			return null;
+			throw new Exception();
 		}else {
 			return Aeroportos.get(index);
 		}

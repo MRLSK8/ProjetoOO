@@ -4,12 +4,12 @@ import models.ModelAeroporto;
 
 public interface InterfaceRepositorioAeroportos {
 	
-	public String inserir(ModelAeroporto aeroporto);
+	public void inserir(ModelAeroporto aeroporto) throws Exception;
 	
-	public String excluir(String nomeAeroporto);
+	public void excluir(String nomeAeroporto) throws Exception;
 	
-	public String atualizar(String nomeAeroporto, String novoNome);
+	public void atualizar(String nomeAeroporto, String novoNome) throws Exception;
 	
-	public ModelAeroporto procurar(String nomeAeroporto);
+	public ModelAeroporto procurar(String nomeAeroporto) throws Exception;
 	
 }

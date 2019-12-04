@@ -12,37 +12,44 @@ public abstract class ModelPessoa{
         this.setNome(Nome);
         this.setTelefone(Telefone);
     }
+    
+    public ModelPessoa() {
+    	
+    }
+    public ModelPessoa(String nome) {
+    	this.setNome(nome);
+    }
  
-	protected String getCPF() {
+	public String getCPF() {
 		return CPF;
 	}
 
-	protected void setCPF(String cPF) {
-		CPF = cPF;
+	public void setCPF(String CPF) {
+		this.CPF = CPF;
 	}
 
-	protected String getNome() {
+	public String getNome() {
 		return Nome;
 	}
 
-	protected void setNome(String nome) {
-		Nome = nome;
+	public void setNome(String nome) {
+		this.Nome = nome;
 	}
 
-	protected String getDataNascimento() {
+	public String getDataNascimento() {
 		return DataNascimento;
 	}
 
-	protected void setDataNascimento(String dataNascimento) {
-		DataNascimento = dataNascimento;
+	public void setDataNascimento(String dataNascimento) {
+		this.DataNascimento = dataNascimento;
 	}
 
-	protected String getTelefone() {
+	public String getTelefone() {
 		return Telefone;
 	}
 
-	protected void setTelefone(String telefone) {
-		Telefone = telefone;
+	public void setTelefone(String telefone) {
+		this.Telefone = telefone;
 	}
     
 }
