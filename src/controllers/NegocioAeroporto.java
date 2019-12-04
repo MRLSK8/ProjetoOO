@@ -7,32 +7,22 @@ public class NegocioAeroporto {
 	InterfaceRepositorioAeroportos aeroportos = null;
 	
 	public NegocioAeroporto(InterfaceRepositorioAeroportos aeroportos) {
-		this.setAeroportos(aeroportos);
-	}
-	
-	public void inserirAerorporto(ModelAeroporto aeroporto) {
-		aeroportos.inserir(aeroporto);
-	}
-	
-	public void deletarAerorporto(ModelAeroporto aeroporto) {
-		aeroportos.excluir(aeroporto);
-	}
-	
-	public void atualizarAerorporto(String nomeAeroporto, String novoNome) {
-		aeroportos.atualizar(nomeAeroporto, novoNome);
-	}
-	
-	public void buscarAerorporto(String nomeAeroporto) {
-		aeroportos.procurar(nomeAeroporto);
-	}
-
-	
-	public InterfaceRepositorioAeroportos getAeroportos() {
-		return aeroportos;
-	}
-
-	public void setAeroportos(InterfaceRepositorioAeroportos aeroportos) {
 		this.aeroportos = aeroportos;
 	}
 	
+	public String inserirAerorporto(ModelAeroporto aeroporto) {
+		return aeroportos.inserir(aeroporto);
+	}
+	
+	public String deletarAerorporto(String nomeAeroporto) {
+		return aeroportos.excluir(nomeAeroporto);
+	}
+	
+	public String atualizarAerorporto(String nomeAeroporto, String novoNome) {
+		return aeroportos.atualizar(nomeAeroporto, novoNome);
+	}
+	
+	public ModelAeroporto buscarAerorporto(String nomeAeroporto) {
+		return aeroportos.procurar(nomeAeroporto);
+	}
 }

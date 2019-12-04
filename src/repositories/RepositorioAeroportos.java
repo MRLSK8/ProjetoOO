@@ -8,24 +8,41 @@ public class RepositorioAeroportos implements InterfaceRepositorioAeroportos{
 	ArrayList<ModelAeroporto> Aeroportos = new ArrayList<ModelAeroporto>();
 	
 	
-	public void inserir(ModelAeroporto aeroporto) {
+	public String inserir(ModelAeroporto aeroporto) {
 		this.Aeroportos.add(aeroporto);
+		
+		return "Inserido com sucesso";
 	}
 	
 	
-	public void excluir(ModelAeroporto aeroporto) {
-		this.Aeroportos.remove(aeroporto);
+	public String excluir(String nomeAeroporto) {
+		ModelAeroporto aeroportoAuxiliar = procurar(nomeAeroporto);
+		
+		if(aeroportoAuxiliar != null) {
+			this.Aeroportos.remove(aeroportoAuxiliar);
+			return "Deletado com sucesso";
+		}else {
+			return "Errro ao deletar aeroporto";
+		}		
 	}
 	
 	
-	public void atualizar(String nomeAeroporto, String novoNome) {
+	public String atualizar(String nomeAeroporto, String novoNome) {
 		int index = 0;
 		
-		ModelAeroporto aeroporto = procurar(nomeAeroporto);
-		aeroporto.setNome_aeroporto(novoNome);
-	    
-		index = Aeroportos.indexOf(aeroporto);
-		Aeroportos.add(index, aeroporto);
+		ModelAeroporto aeroportoAuxiliar = procurar(nomeAeroporto);
+		
+		if(aeroportoAuxiliar != null) {
+			aeroportoAuxiliar.setNome_aeroporto(novoNome);
+		    
+			index = Aeroportos.indexOf(aeroportoAuxiliar);
+			Aeroportos.add(index, aeroportoAuxiliar);
+			
+			return "Atualizado com sucesso";
+		}else {
+			return "Erro ao atualizar";
+		}
+		
 	}
 
 

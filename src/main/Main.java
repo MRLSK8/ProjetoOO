@@ -8,13 +8,16 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		ModelAeroporto Aeroporto1 = new ModelAeroporto("REC", "Recife", "Pernambuco", "Guararapes");
+		ModelAeroporto Aeroporto1 = new ModelAeroporto("REC", "Recife", "Pernambuco", "Guararape");
 		
 		NegocioAeroporto Negocio = new NegocioAeroporto(new RepositorioAeroportos());
 		
-		Negocio.inserirAerorporto(Aeroporto1);
-		Negocio.buscarAerorporto("Guararapes");
-		Negocio.atualizarAerorporto("Guararapes", "Sei lá");
-		Negocio.buscarAerorporto("Sei lá");
+		System.out.println(Negocio.inserirAerorporto(Aeroporto1));
+	
+		System.out.println(Negocio.atualizarAerorporto("Guararape", "Guararapes"));
+		
+		System.out.println(Negocio.deletarAerorporto("Guararapes"));
+		
+		System.out.println(Negocio.buscarAerorporto("Guararapes").getNome_aeroporto());
 	}
 }

@@ -4,11 +4,11 @@ import models.ModelAeroporto;
 
 public interface InterfaceRepositorioAeroportos {
 	
-	public void inserir(ModelAeroporto aeroporto);
+	public String inserir(ModelAeroporto aeroporto);
 	
-	public void excluir(ModelAeroporto aeroporto);
+	public String excluir(String nomeAeroporto);
 	
-	public void atualizar(String nomeAeroporto, String novoNome);
+	public String atualizar(String nomeAeroporto, String novoNome);
 	
 	public ModelAeroporto procurar(String nomeAeroporto);
 	
