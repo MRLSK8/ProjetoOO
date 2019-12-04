@@ -1,8 +1,6 @@
 package models;
 
-import interfaces.InterfacePassagem;
-
-public class ModelPassagem implements InterfacePassagem{
+public class ModelPassagem{
     private ModelAeroporto aeroportoPartida;
     private ModelAeroporto aeroportoChegada;
     private int numeroDaPoltrona;

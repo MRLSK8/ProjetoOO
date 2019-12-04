@@ -1,8 +1,6 @@
 package models;
 
-import interfaces.InterfacePassageiro;
-
-public class ModelPassageiro extends ModelPessoa implements InterfacePassageiro{
+public class ModelPassageiro extends ModelPessoa{
 	private int Passaporte;
 	     
     public ModelPassageiro(String CPF, String Nome, String DataNascimento, String Telefone, int Passaporte) {

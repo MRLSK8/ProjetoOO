@@ -1,8 +1,6 @@
 package models;
 
-import interfaces.InterfacePessoa;
-
-public abstract class ModelPessoa implements InterfacePessoa{
+public abstract class ModelPessoa{
 	private String CPF;
     private String Nome;
     private String DataNascimento;
@@ -14,7 +12,7 @@ public abstract class ModelPessoa implements InterfacePessoa{
         this.setNome(Nome);
         this.setTelefone(Telefone);
     }
-
+ 
 	protected String getCPF() {
 		return CPF;
 	}

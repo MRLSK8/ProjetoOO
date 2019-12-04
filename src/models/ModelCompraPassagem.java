@@ -2,9 +2,7 @@ package models;
 
 import java.util.ArrayList;
 
-import interfaces.InterfaceCompraPassagem;
-
-public class ModelCompraPassagem implements InterfaceCompraPassagem{
+public class ModelCompraPassagem{
 	private ArrayList<ModelPassageiro> passageiros;
 	private ModelContratante contratante;
 	private String dataDaCompra;

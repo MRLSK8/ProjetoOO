@@ -1,8 +1,6 @@
 package models;
 
-import interfaces.InterfaceVoo;
-
-public class ModelVoo implements InterfaceVoo{
+public class ModelVoo{
 	private ModelAeroporto aeroportoPartida;
     private ModelAeroporto aeroportoChegada;
     private String dataDoVoo;

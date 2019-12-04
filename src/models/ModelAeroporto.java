@@ -1,8 +1,6 @@
 package models;
 
-import interfaces.InterfaceAeroporto;
-
-public class ModelAeroporto implements InterfaceAeroporto{
+public class ModelAeroporto{
 	private String codigoAeroporto;
 	private String nomeAeroporto;
     private String cidade;
@@ -10,8 +8,12 @@ public class ModelAeroporto implements InterfaceAeroporto{
     
 	public ModelAeroporto(String codigoAeroporto, String cidade, String estado, String nomeAeroporto) {
 		this.setCidade(cidade);
-		this.setCodigo_aeroporto(nomeAeroporto);
+		this.setCodigo_aeroporto(codigoAeroporto);
 		this.setEstado(estado);
+		this.setNome_aeroporto(nomeAeroporto);
+	}
+	
+	public ModelAeroporto(String nomeAeroporto) {
 		this.setNome_aeroporto(nomeAeroporto);
 	}
 	
@@ -45,6 +47,17 @@ public class ModelAeroporto implements InterfaceAeroporto{
 	
 	public void setNome_aeroporto(String nome_aeroporto) {
 		this.nomeAeroporto = nome_aeroporto;
+	}
+	
+	public boolean equals(Object object) {
+		boolean valor = false;
+		ModelAeroporto aeroporto = (ModelAeroporto)object;
+		
+		if(aeroporto.getNome_aeroporto() == this.nomeAeroporto) {
+			valor = true;
+		}
+		
+		return valor;
 	}
     
 }

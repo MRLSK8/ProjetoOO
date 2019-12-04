@@ -1,8 +1,6 @@
 package models;
 
-import interfaces.InterfaceVendedor;
-
-public class ModelVendedor extends ModelPessoa implements InterfaceVendedor{
+public class ModelVendedor extends ModelPessoa{
 	private int NumeroCracha;
 	
 	public ModelVendedor(String CPF,String Nome, String DataNascimento, String Telefone, int NumeroCracha) {

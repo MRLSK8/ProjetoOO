@@ -1,8 +1,6 @@
 package models;
 
-import interfaces.InterfaceContratante;
-
-public class ModelContratante extends ModelPessoa implements InterfaceContratante{
+public class ModelContratante extends ModelPessoa{
 	private int idContratante;
 		
     public ModelContratante(String CPF, String Nome, String DataNascimento, String Telefone, int idContratante) {
