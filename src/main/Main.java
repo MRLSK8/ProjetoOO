@@ -1,8 +1,13 @@
 package main;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
 import controllers.NegocioAeroporto;
 import controllers.NegocioPassageiro;
 import models.ModelAeroporto;
+import models.ModelCompraDePassagem;
 import models.ModelPassageiro;
 import repositories.RepositorioAeroportos;
 import repositories.RepositorioPassageiros;
@@ -21,21 +26,21 @@ public class Main {
 			NegocioAero.inserirAerorporto(Aeroporto1);
 			NegocioAero.inserirAerorporto(Aeroporto2);
 			NegocioAero.inserirAerorporto(Aeroporto3);
-			System.out.println("Inserido com sucessor!");
+			System.out.println("Inserido com sucesso!");
 		}catch(Exception e) {
 			System.out.println("Erro ao inserir!");
 		}
 		
 		try {
 			NegocioAero.atualizarAerorporto("Guararape", "Guararapes");
-			System.out.println("Atualizado com sucessor!");
+			System.out.println("Atualizado com sucesso!");
 		}catch(Exception e) {
 			System.out.println("Erro ao atualizar!");
 		}
 		
 		try {
 			NegocioAero.deletarAerorporto("Guararapes");
-			System.out.println("Excluido com sucessor!");
+			System.out.println("Excluido com sucesso!");
 		}catch(Exception e) {
 			System.out.println("Erro ao Excluir!");
 		}
@@ -43,7 +48,6 @@ public class Main {
 		try {
 			System.out.print("Nome do aeroporto buscado: ");
 			System.out.println(NegocioAero.buscarAerorporto("Guararapes").getNome_aeroporto());
-			
 		}catch(Exception e) {
 			System.out.println("Erro ao buscar!");
 		}
@@ -58,9 +62,25 @@ public class Main {
 		try {
 			NegocioPassag.inserirPassageiro(Passageiro1);
 			NegocioPassag.inserirPassageiro(Passageiro2);
-			System.out.println("Inserido com sucessor!");
+			System.out.println("Inserido com sucesso!");
 		}catch(Exception e) {
 			System.out.println("Erro ao inserir!");
 		}
+		
+		// -------------------------------------------------------------------------------------------------------------
+		
+		ModelCompraDePassagem p = new ModelCompraDePassagem("FKF", 10, Aeroporto1, Aeroporto2, (new ArrayList<ModelPassageiro>(Arrays.asList(Passageiro1,Passageiro2))), 275.80f);
+	
+		Calendar data = p.getData();
+	
+		SimpleDateFormat FormatadoDeData = new SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat FormatadoDeHora = new SimpleDateFormat("HH:mm:ss");
+		
+		String horaFormatada = FormatadoDeHora.format(data.getTime());
+		String dataFormatada = FormatadoDeData.format(data.getTime());
+		
+		System.out.print(dataFormatada + " " + horaFormatada);
+		
+			
 	}
 }
