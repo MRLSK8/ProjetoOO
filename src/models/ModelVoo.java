@@ -12,37 +12,41 @@ public class ModelVoo{
 		this.setDataDoVoo(dataDoVoo);
 		this.setHoraDoVoo(horaDoVoo);
 	}
-
+	
+	//get
 	public ModelAeroporto getAeroportoPartida() {
 		return aeroportoPartida;
-	}
-	
-	public void setAeroportoPartida(ModelAeroporto aeroportoPartida) {
-		this.aeroportoPartida = aeroportoPartida;
 	}
 	
 	public ModelAeroporto getAeroportoChegada() {
 		return aeroportoChegada;
 	}
 	
-	public void setAeroportoChegada(ModelAeroporto aeroportoChegada) {
-		this.aeroportoChegada = aeroportoChegada;
-	}
-	
 	public String getDataDoVoo() {
 		return dataDoVoo;
-	}
-	
-	public void setDataDoVoo(String dataDoVoo) {
-		this.dataDoVoo = dataDoVoo;
 	}
 	
 	public String getHoraDoVoo() {
 		return horaDoVoo;
 	}
 	
+	//set
+	public void setAeroportoPartida(ModelAeroporto aeroportoPartida) {
+		this.aeroportoPartida = aeroportoPartida;
+	}
+	
+	public void setAeroportoChegada(ModelAeroporto aeroportoChegada) {
+		this.aeroportoChegada = aeroportoChegada;
+	}
+	
+	public void setDataDoVoo(String dataDoVoo) {
+		this.dataDoVoo = dataDoVoo;
+	}
+	
 	public void setHoraDoVoo(String horaDoVoo) {
 		this.horaDoVoo = horaDoVoo;
 	}
     
+	//methods
+	
 }

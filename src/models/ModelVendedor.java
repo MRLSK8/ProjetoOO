@@ -7,12 +7,17 @@ public class ModelVendedor extends ModelPessoa{
 		super(CPF, Nome, DataNascimento, Telefone);
 		this.setNumeroCracha(NumeroCracha);
 	}
-
+	
+	//get
 	public int getNumeroCracha() {
 		return NumeroCracha;
 	}
-
+	
+	//set
 	public void setNumeroCracha(int numeroCracha) {
 		NumeroCracha = numeroCracha;
 	}
+	
+	//methods
+	
 }

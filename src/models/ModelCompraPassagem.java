@@ -16,45 +16,49 @@ public class ModelCompraPassagem{
 		this.setPassagem(passagem);
 		this.setContratante(contratante);
 	}
-
-	public ModelVendedor getVendedor() {
-		return vendedor;
-	}
 	
-	public void setVendedor(ModelVendedor vendedor) {
-		this.vendedor = vendedor;
+	//get
+	public ArrayList<ModelPassageiro> getPassageiros() {
+		return passageiros;
 	}
 	
 	public ModelContratante getContratante() {
 		return contratante;
 	}
 	
-	public void setContratante(ModelContratante contratante) {
-		this.contratante = contratante;
-	}
-	
-	public ArrayList<ModelPassageiro> getPassageiros() {
-		return passageiros;
-	}
-	
-	public void setPassageiros(ArrayList<ModelPassageiro> passageiros) {
-		this.passageiros = passageiros;
+	public String getDataDaCompra() {
+		return dataDaCompra;
 	}
 	
 	public ModelPassagem getPassagem() {
 		return passagem;
 	}
 	
-	public void setPassagem(ModelPassagem passagem) {
-		this.passagem = passagem;
+	public ModelVendedor getVendedor() {
+		return vendedor;
 	}
 	
-	public String getDataDaCompra() {
-		return dataDaCompra;
+	//set
+	public void setPassageiros(ArrayList<ModelPassageiro> passageiros) {
+		this.passageiros = passageiros;
+	}
+	
+	public void setContratante(ModelContratante contratante) {
+		this.contratante = contratante;
 	}
 	
 	public void setDataDaCompra(String dataDaCompra) {
 		this.dataDaCompra = dataDaCompra;
 	}
+	
+	public void setPassagem(ModelPassagem passagem) {
+		this.passagem = passagem;
+	}
+	
+	public void setVendedor(ModelVendedor vendedor) {
+		this.vendedor = vendedor;
+	}
+	
+	//methods
     
 }

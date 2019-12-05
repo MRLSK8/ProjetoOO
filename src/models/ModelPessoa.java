@@ -5,7 +5,15 @@ public abstract class ModelPessoa{
     private String Nome;
     private String DataNascimento;
     private String Telefone;
-      
+    
+    public ModelPessoa() {
+    	
+    }
+    
+    public ModelPessoa(String nome) {
+    	this.setNome(nome);
+    }
+    
     public ModelPessoa(String CPF,String Nome, String DataNascimento, String Telefone){
         this.setCPF(CPF);
         this.setDataNascimento(DataNascimento);
@@ -13,43 +21,39 @@ public abstract class ModelPessoa{
         this.setTelefone(Telefone);
     }
     
-    public ModelPessoa() {
-    	
-    }
-    public ModelPessoa(String nome) {
-    	this.setNome(nome);
-    }
- 
+    //get
 	public String getCPF() {
 		return CPF;
 	}
-
-	public void setCPF(String CPF) {
-		this.CPF = CPF;
-	}
-
+	
 	public String getNome() {
 		return Nome;
+	}
+	
+	public String getDataNascimento() {
+		return DataNascimento;
+	}
+	
+	public String getTelefone() {
+		return Telefone;
+	}
+	
+	//set
+	public void setCPF(String CPF) {
+		this.CPF = CPF;
 	}
 
 	public void setNome(String nome) {
 		this.Nome = nome;
 	}
 
-	public String getDataNascimento() {
-		return DataNascimento;
-	}
-
 	public void setDataNascimento(String dataNascimento) {
 		this.DataNascimento = dataNascimento;
-	}
-
-	public String getTelefone() {
-		return Telefone;
 	}
 
 	public void setTelefone(String telefone) {
 		this.Telefone = telefone;
 	}
     
+	//methods
 }

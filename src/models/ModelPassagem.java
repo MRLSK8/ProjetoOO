@@ -12,37 +12,41 @@ public class ModelPassagem{
 		this.setNumeroDaPoltrona(numeroDaPoltrona);
 		this.setValor(valor);
 	}
-
-	public float getValor() {
-		return valor;
-	}
 	
-	public void setValor(float valor) {
-		this.valor = valor;
-	}
-	
-	public int getNumeroDaPoltrona() {
-		return numeroDaPoltrona;
-	}
-	
-	public void setNumeroDaPoltrona(int numeroDaPoltrona) {
-		this.numeroDaPoltrona = numeroDaPoltrona;
-	}
-	
+	//get
 	public ModelAeroporto getAeroportoPartida() {
 		return aeroportoPartida;
-	}
-	
-	public void setAeroportoPartida(ModelAeroporto aeroportoPartida) {
-		this.aeroportoPartida = aeroportoPartida;
 	}
 	
 	public ModelAeroporto getAeroportoChegada() {
 		return aeroportoChegada;
 	}
 	
+	public int getNumeroDaPoltrona() {
+		return numeroDaPoltrona;
+	}
+	
+	public float getValor() {
+		return valor;
+	}
+	
+	//set
+	public void setAeroportoPartida(ModelAeroporto aeroportoPartida) {
+		this.aeroportoPartida = aeroportoPartida;
+	}
+	
 	public void setAeroportoChegada(ModelAeroporto aeroportoChegada) {
 		this.aeroportoChegada = aeroportoChegada;
 	}
+	
+	public void setNumeroDaPoltrona(int numeroDaPoltrona) {
+		this.numeroDaPoltrona = numeroDaPoltrona;
+	}
+	
+	public void setValor(float valor) {
+		this.valor = valor;
+	}
     
+	//methods
+	
 }

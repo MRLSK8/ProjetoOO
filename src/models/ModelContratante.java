@@ -7,13 +7,17 @@ public class ModelContratante extends ModelPessoa{
         super(CPF, Nome, DataNascimento, Telefone);
         this.setIdContratante(idContratante);
     }
-
+    
+    //get
 	public int getIdContratante() {
 		return idContratante;
 	}
-
+	
+	//set
 	public void setIdContratante(int idContratante) {
 		this.idContratante = idContratante;
 	}
+	
+	//methods
 
 }
