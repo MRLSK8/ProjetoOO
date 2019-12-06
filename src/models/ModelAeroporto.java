@@ -1,12 +1,12 @@
 package models;
 
 public class ModelAeroporto{
-	private String codigoAeroporto;
+	private int codigoAeroporto;
 	private String nomeAeroporto;
     private String cidade;
     private String estado;
     
-	public ModelAeroporto(String codigoAeroporto, String cidade, String estado, String nomeAeroporto) {
+	public ModelAeroporto(int codigoAeroporto, String cidade, String estado, String nomeAeroporto) {
 		this.setCidade(cidade);
 		this.setCodigo_aeroporto(codigoAeroporto);
 		this.setEstado(estado);
@@ -17,11 +17,15 @@ public class ModelAeroporto{
 		this.setNome_aeroporto(nomeAeroporto);
 	}
 	
-	public String getCodigo_aeroporto() {
+	public ModelAeroporto(int codigoAeroporto) {
+		this.setCodigo_aeroporto(codigoAeroporto);
+	}
+	
+	public int getCodigo_aeroporto() {
 		return codigoAeroporto;
 	}
 	
-	public void setCodigo_aeroporto(String codigo_aeroporto) {
+	public void setCodigo_aeroporto(int codigo_aeroporto) {
 		this.codigoAeroporto = codigo_aeroporto;
 	}
 	

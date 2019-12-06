@@ -16,9 +16,9 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		ModelAeroporto Aeroporto1 = new ModelAeroporto("REC", "Recife", "Pernambuco", "Guararape");
-		ModelAeroporto Aeroporto2 = new ModelAeroporto("TEC", "Bonito", "São Paulo", "Guarulhos");
-		ModelAeroporto Aeroporto3 = new ModelAeroporto("JOP", "Bezerros", "Bahia", "KKKK");
+		ModelAeroporto Aeroporto1 = new ModelAeroporto(1, "Recife", "Pernambuco", "RE");
+		ModelAeroporto Aeroporto2 = new ModelAeroporto(2, "Bonito", "São Paulo", "GRO");
+		ModelAeroporto Aeroporto3 = new ModelAeroporto(3, "Bezerros", "Bahia", "KKK");
 		
 		NegocioAeroporto NegocioAero = new NegocioAeroporto(new RepositorioAeroportos());
 		
@@ -32,14 +32,14 @@ public class Main {
 		}
 		
 		try {
-			NegocioAero.atualizarAerorporto("Guararape", "Guararapes");
+			NegocioAero.atualizarAerorporto("RE", "REC");
 			System.out.println("Atualizado com sucesso!");
 		}catch(Exception e) {
 			System.out.println("Erro ao atualizar!");
 		}
 		
 		try {
-			NegocioAero.deletarAerorporto("Guararapes");
+			NegocioAero.deletarAerorporto("REC");
 			System.out.println("Excluido com sucesso!");
 		}catch(Exception e) {
 			System.out.println("Erro ao Excluir!");
@@ -47,7 +47,7 @@ public class Main {
 		
 		try {
 			System.out.print("Nome do aeroporto buscado: ");
-			System.out.println(NegocioAero.buscarAerorporto("Guararapes").getNome_aeroporto());
+			System.out.println(NegocioAero.buscarAerorporto(1).getNome_aeroporto());
 		}catch(Exception e) {
 			System.out.println("Erro ao buscar!");
 		}

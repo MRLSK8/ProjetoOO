@@ -26,6 +26,14 @@ public class NegocioAeroporto {
 		}
 	}
 	
+	public void deletarAerorporto(int codigoAeroporto) throws Exception{
+		try {
+			aeroportos.excluir(codigoAeroporto);
+		}catch(Exception e) {
+			throw new Exception();
+		}
+	}
+	
 	public void atualizarAerorporto(String nomeAeroporto, String novoNome) throws Exception{
 		try{
 			aeroportos.atualizar(nomeAeroporto, novoNome);
@@ -34,9 +42,24 @@ public class NegocioAeroporto {
 		}
 	}
 	
+	public void atualizarAerorporto(int codigoAeroporto, String novoNome) throws Exception{
+		try{
+			aeroportos.atualizar(codigoAeroporto, novoNome);
+		}catch(Exception e) {
+			throw new Exception();
+		}
+	}
+	
 	public ModelAeroporto buscarAerorporto(String nomeAeroporto) throws Exception{
 		try{
 			return aeroportos.procurar(nomeAeroporto);
+		}catch(Exception e) {
+			throw new Exception();
+		}
+	}
+	public ModelAeroporto buscarAerorporto(int codigoAeroporto) throws Exception{
+		try{
+			return aeroportos.procurar(codigoAeroporto);
 		}catch(Exception e) {
 			throw new Exception();
 		}
