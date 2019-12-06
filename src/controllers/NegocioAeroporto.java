@@ -57,6 +57,7 @@ public class NegocioAeroporto {
 			throw new Exception();
 		}
 	}
+	
 	public ModelAeroporto buscarAerorporto(int codigoAeroporto) throws Exception{
 		try{
 			return aeroportos.procurar(codigoAeroporto);
@@ -64,4 +65,5 @@ public class NegocioAeroporto {
 			throw new Exception();
 		}
 	}
+
 }

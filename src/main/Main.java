@@ -15,7 +15,7 @@ import repositories.RepositorioPassageiros;
 public class Main {
 
 	public static void main(String[] args) {
-		
+	
 		ModelAeroporto Aeroporto1 = new ModelAeroporto(1, "Recife", "Pernambuco", "RE");
 		ModelAeroporto Aeroporto2 = new ModelAeroporto(2, "Bonito", "São Paulo", "GRO");
 		ModelAeroporto Aeroporto3 = new ModelAeroporto(3, "Bezerros", "Bahia", "KKK");
@@ -47,7 +47,7 @@ public class Main {
 		
 		try {
 			System.out.print("Nome do aeroporto buscado: ");
-			System.out.println(NegocioAero.buscarAerorporto(1).getNome_aeroporto());
+			System.out.println(NegocioAero.buscarAerorporto("REC").getNome_aeroporto());
 		}catch(Exception e) {
 			System.out.println("Erro ao buscar!");
 		}
@@ -81,6 +81,5 @@ public class Main {
 		
 		System.out.print(dataFormatada + " " + horaFormatada);
 		
-			
 	}
 }

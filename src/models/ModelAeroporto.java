@@ -57,10 +57,10 @@ public class ModelAeroporto{
 		boolean valor = false;
 		ModelAeroporto aeroporto = (ModelAeroporto)object;
 		
-		if(aeroporto.getNome_aeroporto() == this.nomeAeroporto) {
+		if(aeroporto.getNome_aeroporto() == this.nomeAeroporto || aeroporto.getCodigo_aeroporto() == this.getCodigo_aeroporto()) {
 			valor = true;
 		}
-		
+	
 		return valor;
 	}
     

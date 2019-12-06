@@ -17,5 +17,5 @@ public interface InterfaceRepositorioAeroportos {
 	public ModelAeroporto procurar(String nomeAeroporto) throws Exception;
 	
 	public ModelAeroporto procurar(int codigoAeroporto) throws Exception;
-	
+
 }
