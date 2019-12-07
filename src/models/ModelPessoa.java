@@ -1,7 +1,7 @@
 package models;
 
 public abstract class ModelPessoa{
-	protected String CPF;
+	private String CPF;
     private String Nome;
     private String DataNascimento;
     private String Telefone;
@@ -13,9 +13,10 @@ public abstract class ModelPessoa{
         this.setTelefone(Telefone);
     }
     
-    public ModelPessoa() {
-    	
-    }
+	public  ModelPessoa() {
+		   
+	}
+	
     public ModelPessoa(String CPF) {
     	this.setCPF(CPF);
     }

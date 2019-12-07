@@ -7,12 +7,13 @@ public class ModelPassageiro extends ModelPessoa{
         super(CPF, Nome, DataNascimento, Telefone);
         this.setPassaporte(Passaporte);
     }
-    
+   
     public ModelPassageiro(String CPF) {
-    	this.setCPF(CPF);
-    }
+    	super(CPF);
+    } 
     
     public ModelPassageiro(int Passaporte) {
+    	super();
     	this.setPassaporte(Passaporte);
     }
 
@@ -28,7 +29,7 @@ public class ModelPassageiro extends ModelPessoa{
 		boolean valor = false;
 		ModelPassageiro pessoa = (ModelPassageiro)object;
 		
-		if(pessoa.getCPF() == this.CPF || pessoa.getPassaporte() == this.getPassaporte()) {
+		if(pessoa.getCPF() == this.getCPF() || pessoa.getPassaporte() == this.getPassaporte()) {
 			valor = true;
 		}
 	

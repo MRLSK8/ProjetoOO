@@ -54,10 +54,10 @@ public class RepositorioPassageiros implements InterfaceRepositorioPassageiros{
 		
 		int index = Passageiros.indexOf(PassageiroAuxiliar);
 		
-		if(index == -1) {
-			throw new Exception();
-		}else {
+		if(index != -1) {
 			return Passageiros.get(index);
+		}else {
+			throw new Exception();
 		}
 	}
 	
@@ -66,10 +66,10 @@ public class RepositorioPassageiros implements InterfaceRepositorioPassageiros{
 		
 		int index = Passageiros.indexOf(PassageiroAuxiliar);
 		
-		if(index == -1) {
-			throw new Exception();
-		}else {
+		if(index != -1) {
 			return Passageiros.get(index);
+		}else {
+			throw new Exception();
 		}
 	}
 }

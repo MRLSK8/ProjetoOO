@@ -1,24 +1,23 @@
 package models;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 
 public class ModelCompraDePassagem {
 	private String idPassagem;
-	private ArrayList<ModelPassageiro> passageiros;
+	private ModelPassageiro passageiro;
 	private ModelAeroporto aeroportoPartida;
     private ModelAeroporto aeroportoChegada;
     private int numeroDaPoltrona;
 	private Calendar data;
 	private double valor;
 	
-	public ModelCompraDePassagem(String idPassagem, int numeroDaPoltrona, ModelAeroporto aeroportoPartida, ModelAeroporto aeroportoChegada, ArrayList<ModelPassageiro> passageiros, double valor) {
+	public ModelCompraDePassagem(String idPassagem, int numeroDaPoltrona, ModelAeroporto aeroportoPartida, ModelAeroporto aeroportoChegada, ModelPassageiro passageiro, double valor) {
 		this.setIdPassagem(idPassagem);
 		this.setAeroportoChegada(aeroportoChegada);
 		this.setData(Calendar.getInstance()); 
 		this.setNumeroDaPoltrona(numeroDaPoltrona);
 		this.setValor(valor);
-		this.setPassageiros(passageiros);
+		this.setPassageiro(passageiro);
 		this.setAeroportoPartida(aeroportoPartida);
 	}
 	
@@ -30,12 +29,12 @@ public class ModelCompraDePassagem {
 	
 	}
 	
-	public ArrayList<ModelPassageiro> getPassageiros() {
-		return this.passageiros;
+	public ModelPassageiro getPassageiros() {
+		return this.passageiro;
 	}
 	
-	public void setPassageiros(ArrayList<ModelPassageiro> passageiros) {
-		this.passageiros = passageiros;
+	public void setPassageiro(ModelPassageiro passageiro) {
+		this.passageiro = passageiro;
 	}
 	
 	public ModelAeroporto getAeroportoPartida() {

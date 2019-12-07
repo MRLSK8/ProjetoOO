@@ -1,85 +1,50 @@
 package main;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
-import controllers.NegocioAeroporto;
-import controllers.NegocioPassageiro;
-import models.ModelAeroporto;
-import models.ModelCompraDePassagem;
-import models.ModelPassageiro;
-import repositories.RepositorioAeroportos;
-import repositories.RepositorioPassageiros;
+import java.util.Scanner;
 
 public class Main {
 
+	private static Scanner scanner;
+
 	public static void main(String[] args) {
+		
+		ArrayList<String> opcoes = new ArrayList<String>();
+		scanner = new Scanner(System.in);
+		String opcaoEscolhida = null;
+		int tamanho = 0;
+		
+		opcoes.add(" Escolha uma opção: \n");
+		opcoes.add(" 1- Cadastrar aeroportos");
+		opcoes.add(" 2- Cadastrar passageiros");
+		opcoes.add(" 3- Comprar passagens");
+		opcoes.add(" 4- Sair");
+		
+		do {
+			
+			tamanho = opcoes.size();
 	
-		ModelAeroporto Aeroporto1 = new ModelAeroporto(1, "Recife", "Pernambuco", "RE");
-		ModelAeroporto Aeroporto2 = new ModelAeroporto(2, "Bonito", "São Paulo", "GRO");
-		ModelAeroporto Aeroporto3 = new ModelAeroporto(3, "Bezerros", "Bahia", "KKK");
-		
-		NegocioAeroporto NegocioAero = new NegocioAeroporto(new RepositorioAeroportos());
-		
-		try {
-			NegocioAero.inserirAerorporto(Aeroporto1);
-			NegocioAero.inserirAerorporto(Aeroporto2);
-			NegocioAero.inserirAerorporto(Aeroporto3);
-			System.out.println("Inserido com sucesso!");
-		}catch(Exception e) {
-			System.out.println("Erro ao inserir!");
-		}
-		
-		try {
-			NegocioAero.atualizarAerorporto("RE", "REC");
-			System.out.println("Atualizado com sucesso!");
-		}catch(Exception e) {
-			System.out.println("Erro ao atualizar!");
-		}
-		
-		try {
-			NegocioAero.deletarAerorporto("REC");
-			System.out.println("Excluido com sucesso!");
-		}catch(Exception e) {
-			System.out.println("Erro ao Excluir!");
-		}
-		
-		try {
-			System.out.print("Nome do aeroporto buscado: ");
-			System.out.println(NegocioAero.buscarAerorporto("REC").getNome_aeroporto());
-		}catch(Exception e) {
-			System.out.println("Erro ao buscar!");
-		}
-		
-		// ------------------------------------------------------------------------------------------------------------
-		
-		ModelPassageiro Passageiro1 = new ModelPassageiro("124.154.156-01", "Marcelo", "10-05-2000", "995845654", 1565);
-		ModelPassageiro Passageiro2 = new ModelPassageiro("924.043.176-45", "Luiz", "10-05-2000", "8159445654", 1855);
-		
-		NegocioPassageiro NegocioPassag= new NegocioPassageiro(new RepositorioPassageiros());
-	
-		try {
-			NegocioPassag.inserirPassageiro(Passageiro1);
-			NegocioPassag.inserirPassageiro(Passageiro2);
-			System.out.println("Inserido com sucesso!");
-		}catch(Exception e) {
-			System.out.println("Erro ao inserir!");
-		}
-		
-		// -------------------------------------------------------------------------------------------------------------
-		
-		ModelCompraDePassagem p = new ModelCompraDePassagem("FKF", 10, Aeroporto1, Aeroporto2, (new ArrayList<ModelPassageiro>(Arrays.asList(Passageiro1,Passageiro2))), 275.80f);
-	
-		Calendar data = p.getData();
-	
-		SimpleDateFormat FormatadoDeData = new SimpleDateFormat("dd/MM/yyyy");
-		SimpleDateFormat FormatadoDeHora = new SimpleDateFormat("HH:mm:ss");
-		
-		String horaFormatada = FormatadoDeHora.format(data.getTime());
-		String dataFormatada = FormatadoDeData.format(data.getTime());
-		
-		System.out.print(dataFormatada + " " + horaFormatada);
+			for(String opcao: opcoes){
+				System.out.println(opcao);
+			}
+			
+			opcaoEscolhida = scanner.nextLine();
+			
+			if(opcaoEscolhida.equals("1")) {
+				InterfaceGraficaAeroportos.InterfaceGraficaAeroporto();			
+			}else if(opcaoEscolhida.equals("2")){
+				InterfaceGraficaPassageiros.InterfaceGraficaPassageiro();
+			}else if(opcaoEscolhida.equals("3")){
+				InterfaceGraficaCompraDePassagens.InterfaceGraficaCompraDePassagem();
+			}else if(opcaoEscolhida.equals("4")){
+				System.out.println("Finalizando...");
+				break;
+			}else {
+				System.out.println("\n Opcão invalida! Digite um número inteiro entre 1 e " + (tamanho-1) + "! \n\n");				
+			}
+			
+			
+		}while(true);
 		
 	}
 }
