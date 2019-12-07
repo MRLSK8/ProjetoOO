@@ -18,25 +18,49 @@ public class NegocioPassageiro {
 		}
 	}
 	
-	public void deletarPassageiro(String nomePassageiro) throws Exception{
+	public void deletarPassageiro(String CPF) throws Exception{
 		try {
-			passageiros.excluir(nomePassageiro);
+			passageiros.excluir(CPF);
 		}catch(Exception e) {
 			throw new Exception();
 		}
 	}
 	
-	public void atualizarPassageiro(String nomePassageiro, String novoNome) throws Exception{
-		try{
-			passageiros.atualizar(nomePassageiro, novoNome);
+	public void deletarPassageiro(int Passaporte) throws Exception{
+		try {
+			passageiros.excluir(Passaporte);
 		}catch(Exception e) {
 			throw new Exception();
 		}
 	}
 	
-	public ModelPassageiro buscarPassageiro(String nomePassageiro) throws Exception{
+	public void atualizarPassageiro(String CPF, String novoNome) throws Exception{
 		try{
-			return passageiros.procurar(nomePassageiro);
+			passageiros.atualizar(CPF, novoNome);
+		}catch(Exception e) {
+			throw new Exception();
+		}
+	}
+	
+	public void atualizarPassageiro(int Passaporte, String novoNome) throws Exception{
+		try{
+			passageiros.atualizar(Passaporte, novoNome);
+		}catch(Exception e) {
+			throw new Exception();
+		}
+	}
+	
+	public ModelPassageiro buscarPassageiro(String CPF) throws Exception{
+		try{
+			return passageiros.procurar(CPF);
+		}catch(Exception e) {
+			throw new Exception();
+		}
+	}
+	
+	public ModelPassageiro buscarPassageiro(int Passaporte) throws Exception{
+		try{
+			return passageiros.procurar(Passaporte);
 		}catch(Exception e) {
 			throw new Exception();
 		}

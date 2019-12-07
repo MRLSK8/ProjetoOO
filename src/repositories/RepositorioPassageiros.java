@@ -3,6 +3,7 @@ package repositories;
 import java.util.ArrayList;
 
 import interfaces.InterfaceRepositorioPassageiros;
+import models.ModelAeroporto;
 import models.ModelPassageiro;
 
 public class RepositorioPassageiros implements InterfaceRepositorioPassageiros{
@@ -12,8 +13,8 @@ public class RepositorioPassageiros implements InterfaceRepositorioPassageiros{
 		this.Passageiros.add(Passageiro);
 	}
 	
-	public void excluir(String nomePassageiro) throws Exception{
-		ModelPassageiro passageiroAuxiliar = procurar(nomePassageiro);
+	public void excluir(String CPF) throws Exception{
+		ModelPassageiro passageiroAuxiliar = procurar(CPF);
 		
 		if(passageiroAuxiliar != null) {
 			this.Passageiros.remove(passageiroAuxiliar);
@@ -22,24 +23,47 @@ public class RepositorioPassageiros implements InterfaceRepositorioPassageiros{
 		}		
 	}
 	
-	public void atualizar(String nomePassageiro, String novoNome) throws Exception{
-		int index = 0;
+	public void excluir(int Passaporte) throws Exception{
+		ModelPassageiro passageiroAuxiliar = procurar(Passaporte);
 		
-		ModelPassageiro PassageiroAuxiliar = procurar(nomePassageiro);
+		if(passageiroAuxiliar != null) {
+			this.Passageiros.remove(passageiroAuxiliar);
+		}else {
+			throw new Exception();
+		}		
+	}
+	
+	public void atualizar(String CPF, String novoNome) throws Exception{	
+		ModelPassageiro PassageiroAuxiliar = procurar(CPF);
+		
+		PassageiroAuxiliar.setNome(novoNome);
+	}
+	
+	public void atualizar(int Passaporte, String novoNome) throws Exception{	
+		ModelPassageiro PassageiroAuxiliar = procurar(Passaporte);
 		
 		if(PassageiroAuxiliar != null) {
 			PassageiroAuxiliar.setNome(novoNome);
-		    
-			index = Passageiros.indexOf(PassageiroAuxiliar);
-			Passageiros.add(index, PassageiroAuxiliar);
 		}else {
 			throw new Exception();
 		}
 		
 	}
 
-	public ModelPassageiro procurar(String nomePassageiro) throws Exception{
-		ModelPassageiro PassageiroAuxiliar = new ModelPassageiro(nomePassageiro);
+	public ModelPassageiro procurar(String CPF) throws Exception{
+		ModelPassageiro PassageiroAuxiliar = new ModelPassageiro(CPF);
+		
+		int index = Passageiros.indexOf(PassageiroAuxiliar);
+		
+		if(index == -1) {
+			throw new Exception();
+		}else {
+			return Passageiros.get(index);
+		}
+	}
+	
+	public ModelPassageiro procurar(int Passaporte) throws Exception{
+		ModelPassageiro PassageiroAuxiliar = new ModelPassageiro(Passaporte);
 		
 		int index = Passageiros.indexOf(PassageiroAuxiliar);
 		
