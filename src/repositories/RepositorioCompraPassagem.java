@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import interfaces.InterfaceRepositorioCompraDePassagem;
 import models.ModelCompraDePassagem;
+import models.ModelPassageiro;
 
 public class RepositorioCompraPassagem implements InterfaceRepositorioCompraDePassagem{
 	ArrayList<ModelCompraDePassagem> passagens = new ArrayList<ModelCompraDePassagem>();
@@ -42,10 +43,32 @@ public class RepositorioCompraPassagem implements InterfaceRepositorioCompraDePa
 		ModelCompraDePassagem passagemAuxiliar = new ModelCompraDePassagem(idPassagem);
 		int index = passagens.indexOf(passagemAuxiliar);
 		
-		if(index == -1) {
-			throw new Exception();
-		}else {
+		if(index != -1) {
 			return passagens.get(index);
+		}else {
+			throw new Exception();
+		}
+	}
+	
+	public ModelCompraDePassagem procurar(ModelPassageiro passageiro) throws Exception{
+		ModelCompraDePassagem passagemAuxiliar = new ModelCompraDePassagem(passageiro);
+		int index = passagens.indexOf(passagemAuxiliar);
+		
+		if(index != -1) {
+			return passagens.get(index);	
+		}else {
+			throw new Exception();
+		}
+	}
+	
+	public ModelCompraDePassagem procurar(int Passaporte) throws Exception{
+		ModelCompraDePassagem passagemAuxiliar = new ModelCompraDePassagem(Passaporte);
+		int index = passagens.indexOf(passagemAuxiliar);
+		
+		if(index != -1) {
+			return passagens.get(index);	
+		}else {
+			throw new Exception();
 		}
 	}
 

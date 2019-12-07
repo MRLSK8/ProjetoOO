@@ -2,6 +2,7 @@ package controllers;
 
 import interfaces.InterfaceRepositorioCompraDePassagem;
 import models.ModelCompraDePassagem;
+import models.ModelPassageiro;
 
 public class NegocioCompraDePassagem {
 	InterfaceRepositorioCompraDePassagem passagens = null;
@@ -37,6 +38,21 @@ public class NegocioCompraDePassagem {
 	public ModelCompraDePassagem buscarPassagem(String idPassagem) throws Exception{
 		try{
 			return passagens.procurar(idPassagem);
+		}catch(Exception e) {
+			throw new Exception(); 
+		}
+	}
+	
+	public ModelCompraDePassagem buscarPassagem(ModelPassageiro passageiro) throws Exception{
+		try{
+			return passagens.procurar(passageiro);
+		}catch(Exception e) {
+			throw new Exception(); 
+		}
+	}
+	public ModelCompraDePassagem buscarPassagem(int Passaporte) throws Exception{
+		try{
+			return passagens.procurar(Passaporte);
 		}catch(Exception e) {
 			throw new Exception(); 
 		}

@@ -29,6 +29,15 @@ public class ModelCompraDePassagem {
 	
 	}
 	
+	public ModelCompraDePassagem(int Passaporte) {
+		this.getPassageiros().setPassaporte(Passaporte);
+	}
+	
+	public ModelCompraDePassagem(ModelPassageiro passageiro) {
+		
+		this.setPassageiro(passageiro);
+	}
+	
 	public ModelPassageiro getPassageiros() {
 		return this.passageiro;
 	}
@@ -83,6 +92,17 @@ public class ModelCompraDePassagem {
 
 	public void setIdPassagem(String idPassagem) {
 		this.idPassagem = idPassagem;
+	}
+	
+	public boolean equals(Object object) {
+		boolean valor = false;
+		ModelCompraDePassagem passagem = (ModelCompraDePassagem)object;
+		
+		if(passagem.idPassagem == this.idPassagem || passagem.passageiro == this.passageiro || passagem.passageiro.getPassaporte() == this.passageiro.getPassaporte()) {
+			valor = true;
+		}
+	
+		return valor;
 	}
 	
 }

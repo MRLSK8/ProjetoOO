@@ -13,7 +13,7 @@ public class InterfaceGraficaPassageiros {
 		ModelPassageiro Passageiro2 = new ModelPassageiro("924.043.176-45", "Luiz", "10-05-2000", "8159445654", 1855);
 		
 		NegocioPassageiro NegocioPassag= new NegocioPassageiro(new RepositorioPassageiros());
-	
+
 		try {
 			NegocioPassag.inserirPassageiro(Passageiro1);
 			NegocioPassag.inserirPassageiro(Passageiro2);
