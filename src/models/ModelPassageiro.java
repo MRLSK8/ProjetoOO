@@ -8,8 +8,12 @@ public class ModelPassageiro extends ModelPessoa{
         this.setPassaporte(Passaporte);
     }
     
-    public ModelPassageiro(String nome) {
-    	this.setNome(nome);
+    public ModelPassageiro(String CPF) {
+    	this.setCPF(CPF);
+    }
+    
+    public ModelPassageiro(int Passaporte) {
+    	this.setPassaporte(Passaporte);
     }
 
 	public int getPassaporte() {
@@ -19,4 +23,16 @@ public class ModelPassageiro extends ModelPessoa{
 	public void setPassaporte(int passaporte) {
 		Passaporte = passaporte;
 	}
+	
+	public boolean equals(Object object) {
+		boolean valor = false;
+		ModelPassageiro pessoa = (ModelPassageiro)object;
+		
+		if(pessoa.getCPF() == this.CPF || pessoa.getPassaporte() == this.getPassaporte()) {
+			valor = true;
+		}
+	
+		return valor;
+	}
+	
 }
