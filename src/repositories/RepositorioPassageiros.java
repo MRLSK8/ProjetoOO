@@ -3,7 +3,6 @@ package repositories;
 import java.util.ArrayList;
 
 import interfaces.InterfaceRepositorioPassageiros;
-import models.ModelAeroporto;
 import models.ModelPassageiro;
 
 public class RepositorioPassageiros implements InterfaceRepositorioPassageiros{
