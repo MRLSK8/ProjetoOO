@@ -7,10 +7,10 @@ import java.util.Calendar; //////////////q
 import models.ModelAeroporto;
 import models.ModelCompraDePassagem;
 import models.ModelPassageiro;
-
+import controllers.NegocioCompraDePassagem;;
 
 public class InterfaceGraficaCompraDePassagens {
-	static public void InterfaceGraficaCompraDePassagem() {
+	static public void InterfaceGraficaCompraDePassagem(NegocioCompraDePassagem NegocioCompra) {
 		
 		System.out.println("\n\n =*=*=*=*= Compra de passagens =*=*=*=*= ");
 		
