@@ -1,6 +1,8 @@
 package models;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.text.ParseException;
 
 public class ModelCompraDePassagem {
 	private String idPassagem;
@@ -11,14 +13,19 @@ public class ModelCompraDePassagem {
 	private Calendar data;
 	private double valor;
 	
-	public ModelCompraDePassagem(String idPassagem, int numeroDaPoltrona, ModelAeroporto aeroportoPartida, ModelAeroporto aeroportoChegada, ModelPassageiro passageiro, double valor) {
-		this.setIdPassagem(idPassagem);
-		this.setAeroportoChegada(aeroportoChegada);
-		this.setData(Calendar.getInstance()); 
-		this.setNumeroDaPoltrona(numeroDaPoltrona);
-		this.setValor(valor);
-		this.setPassageiro(passageiro);
-		this.setAeroportoPartida(aeroportoPartida);
+	public ModelCompraDePassagem(String idPassagem, String DATA ,int numeroDaPoltrona, ModelAeroporto aeroportoPartida, ModelAeroporto aeroportoChegada, ModelPassageiro passageiro, double valor) throws Exception {
+		try {
+			this.setIdPassagem(idPassagem);
+			this.setAeroportoChegada(aeroportoChegada);
+			this.setData(DATA); 
+			this.setNumeroDaPoltrona(numeroDaPoltrona);
+			this.setValor(valor);
+			this.setPassageiro(passageiro);
+			this.setAeroportoPartida(aeroportoPartida);
+		}
+		catch(Exception e) {
+			throw new Exception();
+		}
 	}
 	
 	public ModelCompraDePassagem(String idPassagem) {
@@ -27,6 +34,10 @@ public class ModelCompraDePassagem {
 	
 	public ModelCompraDePassagem() {
 	
+	}
+	
+	public ModelCompraDePassagem(Calendar calendario) {
+		this.setData(calendario);
 	}
 	
 	public ModelCompraDePassagem(int Passaporte) {
@@ -62,12 +73,26 @@ public class ModelCompraDePassagem {
 		this.aeroportoChegada = aeroportoChegada;
 	}
 	
+	public void setData(Calendar calendario) {
+		this.data=calendario;
+	}
+	
 	public Calendar getData() {
 		return this.data;
 	}
 	
-	public void setData(Calendar data) {
-		this.data = data;
+	public void setData(String DATA) throws Exception {
+		
+		try {
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+			Calendar cal = Calendar.getInstance();
+			cal.setTime(sdf.parse(DATA));
+			
+			this.data = cal;
+		}
+		catch (ParseException e) {
+			throw new Exception();
+		}
 	}
 	
 	public double getValor() {
@@ -93,12 +118,12 @@ public class ModelCompraDePassagem {
 	public void setIdPassagem(String idPassagem) {
 		this.idPassagem = idPassagem;
 	}
-	
+
 	public boolean equals(Object object) {
 		boolean valor = false;
 		ModelCompraDePassagem passagem = (ModelCompraDePassagem)object;
 		
-		if(passagem.idPassagem == this.idPassagem || passagem.passageiro == this.passageiro || passagem.passageiro.getPassaporte() == this.passageiro.getPassaporte()) {
+		if(passagem.idPassagem == this.idPassagem || passagem.passageiro == this.passageiro || passagem.passageiro.getPassaporte() == this.passageiro.getPassaporte() || passagem.data == this.data) {
 			valor = true;
 		}
 	
