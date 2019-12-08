@@ -1,5 +1,7 @@
 package controllers;
 
+import java.util.Calendar;
+
 import interfaces.InterfaceRepositorioCompraDePassagem;
 import models.ModelCompraDePassagem;
 import models.ModelPassageiro;
@@ -53,6 +55,13 @@ public class NegocioCompraDePassagem {
 	public ModelCompraDePassagem buscarPassagem(int Passaporte) throws Exception{
 		try{
 			return passagens.procurar(Passaporte);
+		}catch(Exception e) {
+			throw new Exception(); 
+		}
+	}
+	public ModelCompraDePassagem buscarPassagem(Calendar calendario) throws Exception{
+		try{
+			return passagens.procurar(calendario);
 		}catch(Exception e) {
 			throw new Exception(); 
 		}

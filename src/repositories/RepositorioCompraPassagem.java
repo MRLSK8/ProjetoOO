@@ -1,6 +1,7 @@
 package repositories;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import interfaces.InterfaceRepositorioCompraDePassagem;
 import models.ModelCompraDePassagem;
@@ -63,6 +64,17 @@ public class RepositorioCompraPassagem implements InterfaceRepositorioCompraDePa
 	
 	public ModelCompraDePassagem procurar(int Passaporte) throws Exception{
 		ModelCompraDePassagem passagemAuxiliar = new ModelCompraDePassagem(Passaporte);
+		int index = passagens.indexOf(passagemAuxiliar);
+		
+		if(index != -1) {
+			return passagens.get(index);	
+		}else {
+			throw new Exception();
+		}
+	}
+	
+	public ModelCompraDePassagem procurar(Calendar calendario) throws Exception{
+		ModelCompraDePassagem passagemAuxiliar = new ModelCompraDePassagem(calendario);
 		int index = passagens.indexOf(passagemAuxiliar);
 		
 		if(index != -1) {
