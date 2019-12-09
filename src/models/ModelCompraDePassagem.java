@@ -13,11 +13,11 @@ public class ModelCompraDePassagem {
 	private Calendar data;
 	private double valor;
 	
-	public ModelCompraDePassagem(String idPassagem, String DATA ,int numeroDaPoltrona, ModelAeroporto aeroportoPartida, ModelAeroporto aeroportoChegada, ModelPassageiro passageiro, double valor) throws Exception {
+	public ModelCompraDePassagem(String idPassagem, String data ,int numeroDaPoltrona, ModelAeroporto aeroportoPartida, ModelAeroporto aeroportoChegada, ModelPassageiro passageiro, double valor) throws Exception {
 		try {
 			this.setIdPassagem(idPassagem);
 			this.setAeroportoChegada(aeroportoChegada);
-			this.setData(DATA); 
+			this.setData(data); 
 			this.setNumeroDaPoltrona(numeroDaPoltrona);
 			this.setValor(valor);
 			this.setPassageiro(passageiro);
@@ -74,21 +74,21 @@ public class ModelCompraDePassagem {
 	}
 	
 	public void setData(Calendar calendario) {
-		this.data=calendario;
+		this.data = calendario;
 	}
 	
 	public Calendar getData() {
 		return this.data;
 	}
 	
-	public void setData(String DATA) throws Exception {
+	public void setData(String data) throws Exception {
 		
 		try {
-			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-			Calendar cal = Calendar.getInstance();
-			cal.setTime(sdf.parse(DATA));
+			SimpleDateFormat dataFormato = new SimpleDateFormat("dd/MM/yyyy");
+			Calendar calendar = Calendar.getInstance();
+			calendar.setTime(dataFormato.parse(data));
 			
-			this.data = cal;
+			this.data = calendar;
 		}
 		catch (ParseException e) {
 			throw new Exception();
@@ -118,12 +118,24 @@ public class ModelCompraDePassagem {
 	public void setIdPassagem(String idPassagem) {
 		this.idPassagem = idPassagem;
 	}
-
+	
+	public boolean comparaDatas(Calendar data1, Calendar data2) {
+		
+		// 5 é dia, 2 é mês, 1 é ano
+		
+		if(data1.get(5) == data2.get(5) || data1.get(2) == data2.get(2) || data1.get(1) == data2.get(1)) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
 	public boolean equals(Object object) {
 		boolean valor = false;
 		ModelCompraDePassagem passagem = (ModelCompraDePassagem)object;
 		
-		if(passagem.idPassagem == this.idPassagem || passagem.passageiro == this.passageiro || passagem.passageiro.getPassaporte() == this.passageiro.getPassaporte() || passagem.data == this.data) {
+		if(passagem.idPassagem == this.idPassagem || passagem.passageiro == this.passageiro 
+		  || passagem.passageiro.getPassaporte() == this.passageiro.getPassaporte() || this.comparaDatas(passagem.getData(), this.getData())) {
 			valor = true;
 		}
 	

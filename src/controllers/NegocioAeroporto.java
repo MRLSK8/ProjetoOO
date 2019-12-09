@@ -65,5 +65,9 @@ public class NegocioAeroporto {
 			throw new Exception();
 		}
 	}
+	
+	public void buscarTodos() {
+		aeroportos.mostrarTodos();
+	}
 
 }

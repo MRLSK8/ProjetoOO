@@ -18,4 +18,5 @@ public interface InterfaceRepositorioAeroportos {
 	
 	public ModelAeroporto procurar(int codigoAeroporto) throws Exception;
 
+	public void mostrarTodos();
 }

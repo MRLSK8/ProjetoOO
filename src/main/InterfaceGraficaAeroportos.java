@@ -1,5 +1,6 @@
 package main;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import controllers.NegocioAeroporto;
@@ -10,88 +11,124 @@ public class InterfaceGraficaAeroportos {
 
 	static public void InterfaceGraficaAeroporto(NegocioAeroporto NegocioAero) {
 		ler = new Scanner(System.in);
-		int opcaoEscolhida;
+		int opcaoEscolhida, tamanho = 0;
+		ArrayList<String> opcoes = new ArrayList<String>();
 		
-		System.out.println(" Escolha uma opção: \n");
-		System.out.println(" 1- Cadastrar aeroportos");
-		System.out.println(" 2- Editar aeroportos");
-		System.out.println(" 3- Excluir aeroportos");
-		System.out.println(" 4- Buscar");
-		System.out.println(" 5- Voltar");
+		opcoes.add("\n Escolha uma opção: \n");
+		opcoes.add(" 1- Cadastrar aeroportos");
+		opcoes.add(" 2- Editar aeroportos");
+		opcoes.add(" 3- Excluir aeroportos");
+		opcoes.add(" 4- Buscar");
+		opcoes.add(" 5- Buscar todos");
+		opcoes.add(" 6- Voltar");
+		
+		tamanho = opcoes.size();
+		
+		for(String opcao: opcoes){
+			System.out.println(opcao);
+		}
 		
 		opcaoEscolhida = ler.nextInt();
 		
 		switch(opcaoEscolhida) {
 		
 			case 1:{
-				//cadastro
-				String cid, uf, nome; 
-				int num;
-				System.out.println("\n\n =*=*=*=*= Cadastro de aeroportos =*=*=*=*= ");
+				String cidade, estado, nome; 
+				int codigoAeroporto;
+				
+				System.out.println("\n =*=*=*=*= Cadastro de aeroportos =*=*=*=*= ");
 				System.out.println("Digite a cod do aeroporto: ");
-				num = ler.nextInt();
+				codigoAeroporto = ler.nextInt();
+				
+				ler.nextLine(); // Pega o caracter "enter"
+				
 				System.out.println("Digite a cidade do aeroporto: ");
-				cid = ler.nextLine();
+				cidade = ler.nextLine();
 				System.out.println("Digite o UF do aeroporto: ");
-				uf = ler.nextLine();
+				estado = ler.nextLine();
 				System.out.println("Digite o Nome do aeroporto: ");
 				nome = ler.nextLine();
 				
-				//precisa modificar	
-				ModelAeroporto Aux = new ModelAeroporto(num, cid, uf, nome);
+				ModelAeroporto aeroportoAuxiliar = new ModelAeroporto(codigoAeroporto, cidade, estado, nome);
 					
 				try {
-					NegocioAero.inserirAerorporto(Aux);
-					System.out.println("Inserido com sucesso!");
+					NegocioAero.inserirAerorporto(aeroportoAuxiliar);
+					System.out.println("\nInserido com sucesso!");
 				}catch(Exception e) {
-					System.out.println("Erro ao inserir!");
+					System.out.println("\nErro ao inserir!");
 				}
 				break;
 			}
+			
 			case 2:{
-				//atualizar
-				String anterior, atual;
-				System.out.println("Digite o nome do cod anterior: ");
-				anterior = ler.nextLine();
-				System.out.println("Digite o nome do  novo cod: ");
-				atual = ler.nextLine();
+				int codigoAnterior;
+				String codigoAtual;
+				
+				ler.nextLine(); // Pega o caracter "enter"
+				System.out.println("Digite o codigo anterior: ");
+				codigoAnterior = ler.nextInt();
+				ler.nextLine(); // Pega o caracter "enter"
+				System.out.println("Digite o novo nome do aeroporto: ");
+				codigoAtual = ler.nextLine();
+				
 				try {
-					NegocioAero.atualizarAerorporto(anterior, atual);
-					System.out.println("Atualizado com sucesso!");
+					NegocioAero.atualizarAerorporto(codigoAnterior, codigoAtual);
+					System.out.println("\nAtualizado com sucesso!");
 				}catch(Exception e) {
-					System.out.println("Erro ao atualizar!");
+					System.out.println("\nErro ao atualizar!");
 				}
+				
 				break;
 			}
+			
 			case 3:{
-				String nome;
+				String nomeAeroporto;
+				
+				ler.nextLine(); // Pega o caracter "enter"
 				System.out.println("Digite nome do aeroporto: ");
-				nome = ler.nextLine();
+				nomeAeroporto = ler.nextLine();
+				
 				try {
-					NegocioAero.deletarAerorporto(nome);
-					System.out.println("Excluido com sucesso!");
+					NegocioAero.deletarAerorporto(nomeAeroporto);
+					System.out.println("\nExcluido com sucesso!");
 				}catch(Exception e) {
-					System.out.println("Erro ao Excluir!");
+					System.out.println("\nErro ao Excluir!");
 				}
 				break;
 			}
+			
 			case 4:{
-				String nome;
-				System.out.println("Digite nome do aeroporto: ");
-				nome = ler.nextLine();
+				String nomeAeroporto;
+				
+				ler.nextLine(); // Pega o caracter "enter"
+				System.out.println("Digite o nome do aeroporto: ");
+				nomeAeroporto = ler.nextLine();
+				
 				try {
-					System.out.print("Nome do aeroporto buscado: ");
-					System.out.println(NegocioAero.buscarAerorporto(nome).getNome_aeroporto());
+					System.out.print("Codigo do aeroporto buscado: ");
+					System.out.println(NegocioAero.buscarAerorporto(nomeAeroporto).getCodigo_aeroporto());
 				}catch(Exception e) {
-					System.out.println("Erro ao buscar!");
+					System.out.println(" Erro ao buscar!");
 				}
+				
 				break;
 			}
-			case 5:{
-				System.out.println("Voltando...");
+			
+			case 5:{ // Case temporario, apenas pra teste!!!!
+				NegocioAero.buscarTodos();
+				break;
+			}
+			
+			case 6:{
+				System.out.println("\nVoltando...");
+				break;
+			}
+			
+			default:{
+				System.out.println("\n Opcão invalida! Digite um número inteiro entre 1 e " + (tamanho - 1)+ "! \n\n");
 				break;
 			}
 		}
-		System.out.println("\n\n");
+		
 	}
 }

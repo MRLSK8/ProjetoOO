@@ -1,9 +1,6 @@
 package main;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;/////////////////
-import java.util.Calendar; //////////////q
-
+import java.util.Calendar; 
 import models.ModelAeroporto;
 import models.ModelCompraDePassagem;
 import models.ModelPassageiro;
@@ -13,24 +10,37 @@ public class InterfaceGraficaCompraDePassagens {
 	static public void InterfaceGraficaCompraDePassagem(NegocioCompraDePassagem NegocioCompra) {
 		
 		System.out.println("\n\n =*=*=*=*= Compra de passagens =*=*=*=*= ");
-		
+	
 		ModelAeroporto Aeroporto1 = new ModelAeroporto(1, "Recife", "Pernambuco", "RE");
 		ModelAeroporto Aeroporto2 = new ModelAeroporto(2, "Bonito", "São Paulo", "GRO");
 		ModelPassageiro Passageiro1 = new ModelPassageiro("124.154.156-01", "Marcelo", "10-05-2000", "995845654", 1565);
 		
-		ModelCompraDePassagem p=null;
+		ModelCompraDePassagem novaPassagem = null;
+		
 		try {
-			p = new ModelCompraDePassagem("FKF", "16/07/2008", 10, Aeroporto1, Aeroporto2, Passageiro1, 275.80f);
+			novaPassagem = new ModelCompraDePassagem("FKF", "16/07/2008", 10, Aeroporto1, Aeroporto2, Passageiro1, 275.80f);
 		}
 		catch(Exception e) {
 			System.out.println("Não foi possivel realizar a compra...");
 		}
-		System.out.println(p.getData().getTime());
 		
-		Calendar c = Calendar.getInstance();
-		System.out.println(c.getTime());
+		System.out.println(novaPassagem.getData().getTime());
+		
+		Calendar calendar = Calendar.getInstance();
+		System.out.println(calendar.getTime());
+		
+		System.out.println("\n\n");
 		
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		  
 		/*// month 2   year 1    day 5 
 		Calendar c = Calendar.getInstance();
 
@@ -52,6 +62,5 @@ public class InterfaceGraficaCompraDePassagens {
 			System.out.println(cal.getTime());
 		*/
 		
-		System.out.println("\n\n");
 	}
 }

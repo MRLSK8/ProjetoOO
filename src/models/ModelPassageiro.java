@@ -29,7 +29,7 @@ public class ModelPassageiro extends ModelPessoa{
 		boolean valor = false;
 		ModelPassageiro pessoa = (ModelPassageiro)object;
 		
-		if(pessoa.getCPF() == this.getCPF() || pessoa.getPassaporte() == this.getPassaporte()) {
+		if(pessoa.getCPF().equals(this.getCPF()) || pessoa.getPassaporte() == this.getPassaporte()) {
 			valor = true;
 		}
 	

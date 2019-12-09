@@ -59,9 +59,9 @@ public class NegocioCompraDePassagem {
 			throw new Exception(); 
 		}
 	}
-	public ModelCompraDePassagem buscarPassagem(Calendar calendario) throws Exception{
+	public ModelCompraDePassagem buscarPassagem(Calendar data) throws Exception{
 		try{
-			return passagens.procurar(calendario);
+			return passagens.procurar(data);
 		}catch(Exception e) {
 			throw new Exception(); 
 		}

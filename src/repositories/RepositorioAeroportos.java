@@ -51,7 +51,7 @@ public class RepositorioAeroportos implements InterfaceRepositorioAeroportos{
 	public ModelAeroporto procurar(String nomeAeroporto) throws Exception{
 		ModelAeroporto aeroportoAuxiliar = new ModelAeroporto(nomeAeroporto);
 		int index = Aeroportos.indexOf(aeroportoAuxiliar);
-	
+		
 		if(index != -1) {
 			return Aeroportos.get(index);
 		}else {
@@ -67,6 +67,13 @@ public class RepositorioAeroportos implements InterfaceRepositorioAeroportos{
 			return Aeroportos.get(index);
 		}else {
 			throw new Exception();
+		}
+	}
+	
+	// Metodo Apenas Para Teste!!!!!!!!
+	public void mostrarTodos() {
+		for(ModelAeroporto cod : Aeroportos) {
+			System.out.println(cod.getCodigo_aeroporto() + " " + cod.getCidade() + " " + cod.getNome_aeroporto() + " " + cod.getEstado());
 		}
 	}
 	
