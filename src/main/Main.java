@@ -46,7 +46,7 @@ public class Main {
 			}else if(opcaoEscolhida.equals("2")){
 				InterfaceGraficaPassageiros.InterfaceGraficaPassageiro(NegocioPassag);
 			}else if(opcaoEscolhida.equals("3")){
-				InterfaceGraficaCompraDePassagens.InterfaceGraficaCompraDePassagem(NegocioCompra);
+				InterfaceGraficaCompraDePassagens.InterfaceGraficaCompraDePassagem(NegocioCompra, NegocioAero, NegocioPassag);
 			}else if(opcaoEscolhida.equals("4")){
 				System.out.println("Finalizando...");
 				break;

@@ -1,8 +1,8 @@
 package models;
 
-import java.text.SimpleDateFormat;
+//import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.text.ParseException;
+//import java.text.ParseException;
 
 public class ModelCompraDePassagem {
 	private String idPassagem;
@@ -11,21 +11,18 @@ public class ModelCompraDePassagem {
     private ModelAeroporto aeroportoChegada;
     private int numeroDaPoltrona;
 	private Calendar data;
-	private double valor;
+	private float valor;
 	
-	public ModelCompraDePassagem(String idPassagem, String data ,int numeroDaPoltrona, ModelAeroporto aeroportoPartida, ModelAeroporto aeroportoChegada, ModelPassageiro passageiro, double valor) throws Exception {
-		try {
-			this.setIdPassagem(idPassagem);
-			this.setAeroportoChegada(aeroportoChegada);
-			this.setData(data); 
-			this.setNumeroDaPoltrona(numeroDaPoltrona);
-			this.setValor(valor);
-			this.setPassageiro(passageiro);
-			this.setAeroportoPartida(aeroportoPartida);
-		}
-		catch(Exception e) {
-			throw new Exception();
-		}
+	public ModelCompraDePassagem(String idPassagem, int numeroDaPoltrona, ModelAeroporto aeroportoPartida, ModelAeroporto aeroportoChegada, ModelPassageiro passageiro, float valor){
+	
+		this.setIdPassagem(idPassagem);
+		this.setAeroportoChegada(aeroportoChegada);
+		this.setNumeroDaPoltrona(numeroDaPoltrona);
+		this.setValor(valor);
+		this.setPassageiro(passageiro);
+		this.setAeroportoPartida(aeroportoPartida);
+		this.setData(Calendar.getInstance()); 
+		
 	}
 	
 	public ModelCompraDePassagem(String idPassagem) {
@@ -81,6 +78,7 @@ public class ModelCompraDePassagem {
 		return this.data;
 	}
 	
+	/*
 	public void setData(String data) throws Exception {
 		
 		try {
@@ -94,12 +92,12 @@ public class ModelCompraDePassagem {
 			throw new Exception();
 		}
 	}
-	
+	*/
 	public double getValor() {
 		return this.valor;
 	}
 	
-	public void setValor(double valor) {
+	public void setValor(float valor) {
 		this.valor = valor;
 	}
 
@@ -123,13 +121,13 @@ public class ModelCompraDePassagem {
 		
 		// 5 é dia, 2 é mês, 1 é ano
 		
-		if(data1.get(5) == data2.get(5) || data1.get(2) == data2.get(2) || data1.get(1) == data2.get(1)) {
+		if(data1.get(5) == data2.get(5) && data1.get(2) == data2.get(2) && data1.get(1) == data2.get(1)) {
 			return true;
 		}else {
 			return false;
 		}
 	}
-	
+
 	public boolean equals(Object object) {
 		boolean valor = false;
 		ModelCompraDePassagem passagem = (ModelCompraDePassagem)object;

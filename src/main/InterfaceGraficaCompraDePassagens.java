@@ -1,35 +1,70 @@
 package main;
 
-import java.util.Calendar; 
+import java.util.Scanner;
 import models.ModelAeroporto;
 import models.ModelCompraDePassagem;
 import models.ModelPassageiro;
-import controllers.NegocioCompraDePassagem;;
+import controllers.NegocioAeroporto;
+import controllers.NegocioCompraDePassagem;
+import controllers.NegocioPassageiro;;
 
 public class InterfaceGraficaCompraDePassagens {
-	static public void InterfaceGraficaCompraDePassagem(NegocioCompraDePassagem NegocioCompra) {
+	private static Scanner ler;
+
+	static public void InterfaceGraficaCompraDePassagem(NegocioCompraDePassagem NegocioCompra, NegocioAeroporto NegocioAero, NegocioPassageiro NegocioPassag) {
+		 
+		ModelAeroporto aeroportoOrigem = null, aeroportoDestino = null;
+		String codigo, nomeOrigem, nomeDestino, cpf;
+		ModelCompraDePassagem novaPassagem = null;
+		ModelPassageiro passageiro = null; 
+		ler = new Scanner(System.in);
+		int poltrona;
+		float  valor;
+		boolean valido = true;
 		
 		System.out.println("\n\n =*=*=*=*= Compra de passagens =*=*=*=*= ");
-	
-		ModelAeroporto Aeroporto1 = new ModelAeroporto(1, "Recife", "Pernambuco", "RE");
-		ModelAeroporto Aeroporto2 = new ModelAeroporto(2, "Bonito", "São Paulo", "GRO");
-		ModelPassageiro Passageiro1 = new ModelPassageiro("124.154.156-01", "Marcelo", "10-05-2000", "995845654", 1565);
+		System.out.println("Digite o codigo da passagem: ");
+		codigo = ler.nextLine();
+		System.out.println("Digite o numero da poltrona: ");
+		poltrona = ler.nextInt();
+		ler.nextLine();
+		System.out.println("Digite o nome do aeroporto de origem: ");
+		nomeOrigem = ler.nextLine();
+		System.out.println("Digite o nome do aeroporto de destino: ");
+		nomeDestino = ler.nextLine();
+		System.out.println("Digite o cpf do passageiro: ");
+		cpf = ler.nextLine();
+		System.out.println("Digite o valor da passagem: ");
+		valor = ler.nextFloat();
+		ler.nextLine();
 		
-		ModelCompraDePassagem novaPassagem = null;
+		try{
+			aeroportoOrigem = NegocioAero.buscarAerorporto(nomeOrigem);
+			aeroportoDestino = NegocioAero.buscarAerorporto(nomeDestino);
+		}catch(Exception e) {
+			System.out.println("\nAeroporto origem e/ou destino não encontrado! ");
+			valido = false;
+		}
 		
 		try {
-			novaPassagem = new ModelCompraDePassagem("FKF", "16/07/2008", 10, Aeroporto1, Aeroporto2, Passageiro1, 275.80f);
+			passageiro = NegocioPassag.buscarPassageiro(cpf);
+		}catch(Exception e) {
+			System.out.println("\nPassageiro não encontrado! ");
+			valido = false;
 		}
-		catch(Exception e) {
-			System.out.println("Não foi possivel realizar a compra...");
+		
+		if(valido) {
+			novaPassagem = new ModelCompraDePassagem(codigo, poltrona, aeroportoOrigem, aeroportoDestino, passageiro, valor);
+			try {
+				NegocioCompra.inserirPassagem(novaPassagem);
+				System.out.println("\n Compra realizada com sucesso!");
+			}catch(Exception e) {
+				System.out.println("\nNão foi possivel realizar a compra...");
+			}
 		}
 		
-		System.out.println(novaPassagem.getData().getTime());
 		
-		Calendar calendar = Calendar.getInstance();
-		System.out.println(calendar.getTime());
-		
-		System.out.println("\n\n");
+ 
 		
 		
 		
@@ -40,7 +75,6 @@ public class InterfaceGraficaCompraDePassagens {
 		
 		
 		
-		  
 		/*// month 2   year 1    day 5 
 		Calendar c = Calendar.getInstance();
 

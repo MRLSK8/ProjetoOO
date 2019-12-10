@@ -24,7 +24,7 @@ public class RepositorioCompraPassagem implements InterfaceRepositorioCompraDePa
 		}		
 	}
 	
-	public void atualizar(String idPassagem, double novoValor) throws Exception{
+	public void atualizar(String idPassagem, float novoValor) throws Exception{
 		int index = 0;
 		
 		ModelCompraDePassagem passagemAuxiliar = procurar(idPassagem);
