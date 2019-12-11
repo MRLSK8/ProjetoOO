@@ -29,7 +29,7 @@ public class NegocioCompraDePassagem {
 		}
 	}
 	
-	public void atualizarPassagem(String idPassagem, double novoValor) throws Exception{
+	public void atualizarPassagem(String idPassagem, float novoValor) throws Exception{
 		try{
 			passagens.atualizar(idPassagem, novoValor);
 		}catch(Exception e) {

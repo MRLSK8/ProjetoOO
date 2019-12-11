@@ -34,7 +34,7 @@ public abstract class ModelPessoa{
 	}
 
 	public void setNome(String nome) {
-		this.Nome = nome;
+		this.Nome = nome.toUpperCase();
 	}
 
 	public String getDataNascimento() {

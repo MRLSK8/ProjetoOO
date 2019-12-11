@@ -46,14 +46,13 @@ public class Main {
 			}else if(opcaoEscolhida.equals("2")){
 				InterfaceGraficaPassageiros.InterfaceGraficaPassageiro(NegocioPassag);
 			}else if(opcaoEscolhida.equals("3")){
-				InterfaceGraficaCompraDePassagens.InterfaceGraficaCompraDePassagem(NegocioCompra);
+				InterfaceGraficaCompraDePassagens.InterfaceGraficaCompraDePassagem(NegocioCompra, NegocioAero, NegocioPassag);
 			}else if(opcaoEscolhida.equals("4")){
 				System.out.println("Finalizando...");
 				break;
 			}else {
 				System.out.println("\n Opcão invalida! Digite um número inteiro entre 1 e " + (tamanho - 2) + "! \n\n");				
 			}
-			
 			
 		}while(true);
 		
