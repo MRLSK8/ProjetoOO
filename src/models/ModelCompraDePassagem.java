@@ -1,8 +1,6 @@
 package models;
 
-//import java.text.SimpleDateFormat;
 import java.util.Calendar;
-//import java.text.ParseException;
 
 public class ModelCompraDePassagem {
 	private String idPassagem;
@@ -26,7 +24,7 @@ public class ModelCompraDePassagem {
 	}
 	
 	public ModelCompraDePassagem(String idPassagem) {
-		this.setIdPassagem(idPassagem);
+		this.setIdPassagem(idPassagem.toUpperCase());
 	}
 	
 	public ModelCompraDePassagem() {
@@ -78,21 +76,6 @@ public class ModelCompraDePassagem {
 		return this.data;
 	}
 	
-	/*
-	public void setData(String data) throws Exception {
-		
-		try {
-			SimpleDateFormat dataFormato = new SimpleDateFormat("dd/MM/yyyy");
-			Calendar calendar = Calendar.getInstance();
-			calendar.setTime(dataFormato.parse(data));
-			
-			this.data = calendar;
-		}
-		catch (ParseException e) {
-			throw new Exception();
-		}
-	}
-	*/
 	public double getValor() {
 		return this.valor;
 	}
@@ -114,7 +97,7 @@ public class ModelCompraDePassagem {
 	}
 
 	public void setIdPassagem(String idPassagem) {
-		this.idPassagem = idPassagem;
+		this.idPassagem = idPassagem.toUpperCase();
 	}
 	
 	public boolean comparaDatas(Calendar data1, Calendar data2) {

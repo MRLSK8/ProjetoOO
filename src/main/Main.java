@@ -54,7 +54,6 @@ public class Main {
 				System.out.println("\n Opcão invalida! Digite um número inteiro entre 1 e " + (tamanho - 2) + "! \n\n");				
 			}
 			
-			
 		}while(true);
 		
 	}

@@ -14,7 +14,7 @@ public class ModelAeroporto{
 	}
 	
 	public ModelAeroporto(String nomeAeroporto) {
-		this.setNome_aeroporto(nomeAeroporto);
+		this.setNome_aeroporto(nomeAeroporto.toUpperCase());
 	}
 	
 	public ModelAeroporto(int codigoAeroporto) {
@@ -34,7 +34,7 @@ public class ModelAeroporto{
 	}
 	
 	public void setCidade(String cidade) {
-		this.cidade = cidade;
+		this.cidade = cidade.toUpperCase();
 	}
 	
 	public String getEstado() {
@@ -42,7 +42,7 @@ public class ModelAeroporto{
 	}
 	
 	public void setEstado(String estado) {
-		this.estado = estado;
+		this.estado = estado.toUpperCase();
 	}
 	
 	public String getNome_aeroporto() {
@@ -50,7 +50,7 @@ public class ModelAeroporto{
 	}
 	
 	public void setNome_aeroporto(String nome_aeroporto) {
-		this.nomeAeroporto = nome_aeroporto;
+		this.nomeAeroporto = nome_aeroporto.toUpperCase();
 	}
 	
 	public boolean equals(Object object) {
