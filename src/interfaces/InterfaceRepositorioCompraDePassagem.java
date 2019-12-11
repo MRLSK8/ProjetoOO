@@ -2,6 +2,8 @@ package interfaces;
 
 import models.ModelCompraDePassagem;
 import models.ModelPassageiro;
+
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public interface InterfaceRepositorioCompraDePassagem {
@@ -18,5 +20,5 @@ public interface InterfaceRepositorioCompraDePassagem {
 	
 	public ModelCompraDePassagem procurar(int Passaporte) throws Exception;
 	
-	public ModelCompraDePassagem procurar(Calendar Data) throws Exception;
+	public ArrayList<ModelCompraDePassagem> procurar(Calendar Data) throws Exception;
 }

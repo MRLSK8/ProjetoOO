@@ -1,5 +1,6 @@
 package controllers;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import interfaces.InterfaceRepositorioCompraDePassagem;
@@ -59,7 +60,7 @@ public class NegocioCompraDePassagem {
 			throw new Exception(); 
 		}
 	}
-	public ModelCompraDePassagem buscarPassagem(Calendar data) throws Exception{
+	public ArrayList<ModelCompraDePassagem> buscarPassagem(Calendar data) throws Exception{
 		try{
 			return passagens.procurar(data);
 		}catch(Exception e) {

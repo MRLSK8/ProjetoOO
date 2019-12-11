@@ -69,12 +69,5 @@ public class RepositorioAeroportos implements InterfaceRepositorioAeroportos{
 			throw new Exception();
 		}
 	}
-	
-	// Metodo Apenas Para Teste!!!!!!!!
-	public void mostrarTodos() {
-		for(ModelAeroporto cod : Aeroportos) {
-			System.out.println(cod.getCodigo_aeroporto() + " " + cod.getCidade() + " " + cod.getNome_aeroporto() + " " + cod.getEstado());
-		}
-	}
-	
+		
 }

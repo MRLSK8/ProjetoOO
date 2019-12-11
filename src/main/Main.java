@@ -30,7 +30,7 @@ public class Main {
 		opcoes.add(" 2- Menu passageiros");
 		opcoes.add(" 3- Menu compra de passagens");
 		opcoes.add(" 4- Sair");
-		
+				
 		do {
 			
 			tamanho = opcoes.size();
@@ -55,6 +55,6 @@ public class Main {
 			}
 			
 		}while(true);
-		
+
 	}
 }

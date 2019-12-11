@@ -14,13 +14,13 @@ public class InterfaceGraficaAeroportos {
 		int opcaoEscolhida, tamanho = 0;
 		ArrayList<String> opcoes = new ArrayList<String>();
 		
+		opcoes.add("\n\n =*=*=*=*= Opções de aeroportos =*=*=*=*= ");
 		opcoes.add("\n Escolha uma opção: \n");
-		opcoes.add(" 1- Cadastrar aeroportos");
-		opcoes.add(" 2- Editar aeroportos");
-		opcoes.add(" 3- Excluir aeroportos");
-		opcoes.add(" 4- Buscar");
-		opcoes.add(" 5- Buscar todos");
-		opcoes.add(" 6- Voltar");
+		opcoes.add(" 1- Cadastrar aeroporto");
+		opcoes.add(" 2- Editar aeroporto");
+		opcoes.add(" 3- Excluir aeroporto");
+		opcoes.add(" 4- Buscar aeroporto");
+		opcoes.add(" 5- Voltar para o menu principal");
 		
 		tamanho = opcoes.size();
 		
@@ -113,19 +113,14 @@ public class InterfaceGraficaAeroportos {
 				
 				break;
 			}
-			
-			case 5:{ // Case temporario, apenas pra teste!!!!
-				NegocioAero.buscarTodos();
-				break;
-			}
-			
-			case 6:{
+					
+			case 5:{
 				System.out.println("\nVoltando...");
 				break;
 			}
 			
 			default:{
-				System.out.println("\n Opcão invalida! Digite um número inteiro entre 1 e " + (tamanho - 1)+ "! \n\n");
+				System.out.println("\n Opcão invalida! Digite um número inteiro entre 1 e " + (tamanho - 2)+ "! \n\n");
 				break;
 			}
 		}

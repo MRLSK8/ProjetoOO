@@ -16,11 +16,11 @@ public class InterfaceGraficaPassageiros {
 		
 		opcoes.add("\n =*=*=*=*= Opções de passageiros =*=*=*=*= ");
 		opcoes.add("\n Escolha uma opção: \n");
-		opcoes.add(" 1- Cadastrar passageiros");
-		opcoes.add(" 2- Editar passageiros");
-		opcoes.add(" 3- Excluir passageiros");
-		opcoes.add(" 4- Buscar");
-		opcoes.add(" 5- Voltar");
+		opcoes.add(" 1- Cadastrar passageiro");
+		opcoes.add(" 2- Editar passageiro");
+		opcoes.add(" 3- Excluir passageiro");
+		opcoes.add(" 4- Buscar passageiro");
+		opcoes.add(" 5- Voltar para o menu principal");
 		
 		tamanho = opcoes.size();
 		
@@ -106,7 +106,7 @@ public class InterfaceGraficaPassageiros {
 				cpf = ler.nextLine();
 				
 				try {
-					System.out.print("\n" + "Nome da pessoa procurada: ");
+					System.out.print("\nNome da pessoa procurada: ");
 					System.out.println(NegocioPassag.buscarPassageiro(cpf).getNome());
 				}catch(Exception e) {
 					System.out.println("\nErro ao buscar!");

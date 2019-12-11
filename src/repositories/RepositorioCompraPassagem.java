@@ -73,12 +73,17 @@ public class RepositorioCompraPassagem implements InterfaceRepositorioCompraDePa
 		}
 	}
 	
-	public ModelCompraDePassagem procurar(Calendar calendario) throws Exception{
-		ModelCompraDePassagem passagemAuxiliar = new ModelCompraDePassagem(calendario);
-		int index = passagens.indexOf(passagemAuxiliar);
+	public ArrayList<ModelCompraDePassagem> procurar(Calendar dataProcurada) throws Exception{
+		ArrayList<ModelCompraDePassagem> passagensEncontradas = new ArrayList<ModelCompraDePassagem>();
 		
-		if(index != -1) {
-			return passagens.get(index);	
+		for(ModelCompraDePassagem passagem : passagens) {
+			if(passagem.comparaDatas(dataProcurada, passagem.getData())) {
+				passagensEncontradas.add(passagem);
+			}
+		}
+		
+		if(passagensEncontradas.size() != 0) {
+			return passagensEncontradas;	
 		}else {
 			throw new Exception();
 		}

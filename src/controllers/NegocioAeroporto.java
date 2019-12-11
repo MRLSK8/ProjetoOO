@@ -6,8 +6,8 @@ import models.ModelAeroporto;
 public class NegocioAeroporto {
 	InterfaceRepositorioAeroportos aeroportos = null;
 	
-	public NegocioAeroporto(InterfaceRepositorioAeroportos aeroportos) {
-		this.aeroportos = aeroportos;
+	public NegocioAeroporto(Object aeroportos) {
+		this.aeroportos = (InterfaceRepositorioAeroportos)aeroportos;
 	}
 	
 	public void inserirAerorporto(ModelAeroporto aeroporto) throws Exception {
@@ -66,8 +66,4 @@ public class NegocioAeroporto {
 		}
 	}
 	
-	public void buscarTodos() {
-		aeroportos.mostrarTodos();
-	}
-
 }

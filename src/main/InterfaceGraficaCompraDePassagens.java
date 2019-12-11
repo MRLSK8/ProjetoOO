@@ -1,6 +1,7 @@
 package main;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Scanner;
 import models.ModelAeroporto;
@@ -16,25 +17,34 @@ public class InterfaceGraficaCompraDePassagens {
 	static public void InterfaceGraficaCompraDePassagem(NegocioCompraDePassagem NegocioCompra, NegocioAeroporto NegocioAero, NegocioPassageiro NegocioPassag) {
 		 
 		ModelAeroporto aeroportoOrigem = null, aeroportoDestino = null;
+		ArrayList<String> opcoes = new ArrayList<String>();
 		String codigo, nomeOrigem, nomeDestino, cpf;
 		ModelCompraDePassagem novaPassagem = null;
 		ModelPassageiro passageiro = null; 
 		ler = new Scanner(System.in);
-		int poltrona, opcaoEscolhida;
-		float  valor;
+		int poltrona, opcaoEscolhida, tamanho = 0;
 		boolean valido = true;
-		System.out.println("\\n\\n =*=*=*=*= Opções de passagens =*=*=*=*= ");
-		System.out.println("1-Comprar passagem");
-		System.out.println("2-Atualizar passagem");
-		System.out.println("3-Deletar passagem");
-		System.out.println("4-Buscar passagem");
-		System.out.println("5-Voltar\n");
+		float  valor;
+		
+		opcoes.add("\n\n =*=*=*=*= Opções de passagens =*=*=*=*= ");
+		opcoes.add("\n Escolha uma opção: \n");
+		opcoes.add("1-Comprar passagem");
+		opcoes.add("2-Atualizar passagem");
+		opcoes.add("3-Deletar passagem");
+		opcoes.add("4-Buscar passagem");
+		opcoes.add("5-Voltar para o menu principal\n");
+		
+		tamanho = opcoes.size();
+		
+		for(String opcao: opcoes){
+			System.out.println(opcao);
+		}
 		
 		opcaoEscolhida = ler.nextInt();
 		
 		switch(opcaoEscolhida) {
 			case 1:{
-				ler.nextLine();
+				ler.nextLine(); // Pega o caracter "enter"
 				System.out.println("\n\n =*=*=*=*= Compra de passagens =*=*=*=*= ");
 				System.out.println("Digite o codigo da passagem: ");
 				codigo = ler.nextLine();
@@ -75,6 +85,7 @@ public class InterfaceGraficaCompraDePassagens {
 				}
 				break;
 			}
+			
 			case 2:{
 				float novoValor;
 				System.out.println("\n\n =*=*=*=*= Atualizar de passagens =*=*=*=*= ");
@@ -83,6 +94,7 @@ public class InterfaceGraficaCompraDePassagens {
 				System.out.println("Digite o novo valor da passagem: ");
 				novoValor = ler.nextFloat();
 				ler.nextLine();
+				
 				try {
 					NegocioCompra.atualizarPassagem(codigo, novoValor);
 					System.out.println("Valor Atualizado com sucesso!\n");
@@ -91,10 +103,12 @@ public class InterfaceGraficaCompraDePassagens {
 				}
 				break;
 			}
+			
 			case 3:{
 				System.out.println("\n\n =*=*=*=*= Deletar passagem =*=*=*=*= ");
 				System.out.println("Digite o codigo da passagem: ");
 				codigo = ler.nextLine();
+				
 				try {
 					NegocioCompra.deletarPassagem(codigo);
 					System.out.println("Passagem deletada com sucesso!\n");
@@ -103,24 +117,41 @@ public class InterfaceGraficaCompraDePassagens {
 				}
 				break;
 			}
+			
 			case 4:{
 				String data;
 				ler.nextLine();
 				System.out.println("\n\n =*=*=*=*= Buscar passagem =*=*=*=*= ");
-				System.out.println("Digite a data passagem: ");
+				System.out.println("Digite a data passagem (dd/MM/yyyy): ");
 				data = ler.nextLine();
+				
 				try {
 					SimpleDateFormat dataFormato = new SimpleDateFormat("dd/MM/yyyy");
 					Calendar calendar = Calendar.getInstance();
 					calendar.setTime(dataFormato.parse(data));
-					NegocioCompra.buscarPassagem(calendar);
-				}
-				catch (Exception e) {
+					
+					ArrayList<ModelCompraDePassagem> passagensEncontradas= null;
+					
+					passagensEncontradas = NegocioCompra.buscarPassagem(calendar);
+					
+					for(ModelCompraDePassagem passagem: passagensEncontradas) {
+						System.out.println("Id da passagem encontrada: " + passagem.getIdPassagem());
+					}
+					
+					
+				}catch (Exception e) {
 					System.out.println("Não foi possivel buscar!\n");
 				}
 				break;
 			}
+			
 			case 5:{
+				System.out.println("\nVoltando...");
+				break;
+			}
+			
+			default:{
+				System.out.println("\n Opcão invalida! Digite um número inteiro entre 1 e " + (tamanho - 2)+ "! \n\n");
 				break;
 			}
 		}
